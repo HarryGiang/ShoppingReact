@@ -1,4 +1,1 @@
-import Home from "./Public/Home"
-export {
-    Home
-}
+export * from "./Public/Home";
