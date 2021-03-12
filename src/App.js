@@ -1,21 +1,15 @@
 import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { Home } from "Page";
-import { Header } from "Components/Layout/Header";
-import { Footer } from "Components/Layout/Footer";
+import { StoreProvider } from "easy-peasy";
+import "./App.less";
 
-function App() {
-  return (
-    <>
-      <BrowserRouter>
-        <Header />
-        <Switch>
-          <Route path="/" exact={true} component={Home} />
-        </Switch>
-        <Footer />
-      </BrowserRouter>
-    </>
-  );
-}
+import store from "Store";
+
+import Router from "./Router";
+
+const App = () => (
+  <StoreProvider store={store}>
+    <Router />
+  </StoreProvider>
+);
 
 export default App;
