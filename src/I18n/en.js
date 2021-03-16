@@ -1,6 +1,11 @@
 const i18nObject = {
-  home: {
+  header: {
     shop: "Shop",
+    faq: "FAQ",
+    contact: "Contact",
+    login: "Log In",
+    visage: "VISAGE",
   },
 };
+
 export default i18nObject;

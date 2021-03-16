@@ -1,41 +1,41 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import { UserOutlined, ShoppingCartOutlined } from 'Components/UI-Library/Icons';
+import { useTranslation } from "react-i18next";
+
+import { Row, Col } from "Components/UI-Library";
 import UserIcon from "Assets/Icons/ic-user.svg";
 import CartIcon from "Assets/Icons/ic-cart.svg";
 
 import "./index.less";
 
-
 const HeaderLayout = () => {
+  const { t } = useTranslation(["header"]);
   return (
     <>
       <div className="header">
         <div className="nav-menu">
           <Link className="nav-item" to="/shop">
-            Shop
+            {t("shop")}
           </Link>
           <Link className="nav-item" to="/faq">
-            FAQ
+            {t("faq")}
           </Link>
           <Link className="nav-item" to="/contact">
-            Contact
+            {t("contact")}
           </Link>
         </div>
         <div>
           <Link className="logo" to="/">
-            VISAGE
+            {t("visage")}
           </Link>
         </div>
         <div className="user-cart">
           <div className="login">
             <img src={UserIcon} alt="" />
-            {/* <UserOutlined /> */}
-            Log In
+            {t("login")}
           </div>
           <div className="shopping-cart">
             <img src={CartIcon} alt="" />
-            {/* <ShoppingCartOutlined /> */}
             <div className="quantity">0</div>
           </div>
         </div>
