@@ -1,0 +1,51 @@
+@import '~antd/lib/style/themes/default.less';
+
+@blue: #0A1FDB;
+
+.header {
+    color: @black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    background-color: @white;
+    height: 89px;
+    margin: 0 auto;
+    .nav-menu {
+      .nav-item {
+        margin-right: 30px;
+        color: @black;
+      }
+      .nav-item:hover{
+        color: @blue;
+    }
+    }
+    .logo {
+      letter-spacing: 8px;
+      font-size: 24px;
+      color: @black;
+    }
+    .user-cart {
+      display: flex;
+      align-items: center;
+      .login {
+        display: flex;
+        align-items: center;
+        margin-right: 25px;
+        img {
+          margin-right: 15px;
+        }
+      }
+      .shopping-cart {
+        position: relative;
+        display: inline-block;
+        .quantity {
+          position: absolute;
+          top: 20%;
+          left: 50%;
+          transform: translateX(-50%);
+          font-size: 14px;
+        }
+      }
+    }
+  }

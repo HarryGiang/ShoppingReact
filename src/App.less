@@ -1,2 +1,19 @@
-@import '~antd/dist/antd.less';
+@import "~antd/dist/antd.less";
+@blue: #0a1fdb;
 
+.ant-btn {
+  background-color: transparent;
+  border-radius: 5px;
+  border: 1px solid @blue;
+  padding: 0 40px;
+  color: @blue;
+  font-size: 16px;
+  cursor: pointer;
+  &:hover {
+    background-color: @blue;
+    color: white;
+  }
+  &:focus {
+    outline: none;
+  }
+}

@@ -2,14 +2,14 @@ import React from "react";
 import { Layout } from "Components/UI-Library";
 
 import "./index.less";
-import { Header } from "Components";
+import HeaderLayout from "Components/Header";
 
 const { Content } = Layout;
 
 const PrivateLayout = (props) => {
   return (
-    <Layout className="pp_layout">
-      <Header />
+    <Layout className="">
+      <HeaderLayout />
       <Content>{props.children}</Content>
     </Layout>
   );
