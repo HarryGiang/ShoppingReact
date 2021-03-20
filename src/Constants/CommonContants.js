@@ -9,4 +9,9 @@ export const ROUTER = {
   Login: "/sign-in",
   Register: "/register",
   Forbidden: "/forbidden",
+  ProductDetail: "/product-detail",
+  Cart: "/cart",
+  Shop: "/shop",
+  FAQ: "/faq",
+  Contact: "/contact",
 };

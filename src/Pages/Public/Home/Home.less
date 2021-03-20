@@ -2,13 +2,7 @@
 @blue: #0a1fdb;
 @light_pink: rgb(253 248 236);
 @pink: rgb(254 156 122);
-.content {
-  width: 90%;
-  margin: 0 auto;
-}
-.d-flex {
-  display: flex;
-}
+
 .text-center {
   text-align: center;
 }
@@ -29,11 +23,8 @@
   background-color: @pink;
 }
 .col-left {
-  width: 50%;
   height: 680px;
-  margin: 20px;
   background-color: rgb(217 236 255);
-  font-size: 20px;
   color: @blue;
   display: flex;
   justify-content: center;
@@ -41,34 +32,29 @@
   .col-left-content {
     width: 50%;
     margin: 0 auto;
+    font-size: 20px;
   }
 }
 .col-right {
-  width: 50%;
   height: 680px;
-  margin: 20px;
   img {
     width: 100%;
     height: 100%;
   }
 }
 .tag {
-  padding: 50px 0;
-  .tag-list {
-    width: 90%;
-    margin: auto;
-    .tag-item {
-      position: relative;
-      width: 25%;
-      margin: 40px;
-      img {
-        width: 100%;
-        height: 100%;
-      }
+  padding: 100px;
+  .tag-item {
+    position: relative;
+    img {
+      width: 100%;
+      height: 100%;
     }
   }
 }
-.box-overlay, .tag-content {
+
+.box-overlay,
+.tag-content {
   display: none;
 }
 .tag-item:hover {
@@ -83,12 +69,20 @@
     display: block;
     transition: 0.2s ease-out;
   }
-  .tag-content{
+  .tag-content {
     display: block;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: @blue;
+  }
+}
+.btn.ant-btn {
+  padding: 0 40px;
+  width: auto;
+  &:hover {
+    background-color: @blue;
+    color: white;
   }
 }

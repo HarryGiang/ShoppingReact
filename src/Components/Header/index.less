@@ -1,51 +1,74 @@
-@import '~antd/lib/style/themes/default.less';
+@import "~antd/lib/style/themes/default.less";
 
-@blue: #0A1FDB;
+@blue: #0a1fdb;
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: none;
+  z-index: 1;
+}
 
 .header {
-    color: @black;
+  color: @black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: @white;
+  height: 89px;
+
+  .nav-menu {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 90%;
-    background-color: @white;
-    height: 89px;
-    margin: 0 auto;
-    .nav-menu {
+    .menu-item {
+      position: relative;
       .nav-item {
         margin-right: 30px;
         color: @black;
+        &:hover {
+          .dropdown-menu {
+            display: block;
+          }
+        }
       }
-      .nav-item:hover{
+      .nav-item:hover {
         color: @blue;
-    }
-    }
-    .logo {
-      letter-spacing: 8px;
-      font-size: 24px;
-      color: @black;
-    }
-    .user-cart {
-      display: flex;
-      align-items: center;
-      .login {
-        display: flex;
-        align-items: center;
-        margin-right: 25px;
-        img {
-          margin-right: 15px;
-        }
-      }
-      .shopping-cart {
-        position: relative;
-        display: inline-block;
-        .quantity {
-          position: absolute;
-          top: 20%;
-          left: 50%;
-          transform: translateX(-50%);
-          font-size: 14px;
-        }
       }
     }
   }
+  .logo {
+    letter-spacing: 8px;
+    font-size: 24px;
+    color: @black;
+  }
+  .user-cart {
+    display: flex;
+    align-items: center;
+    .login {
+      display: flex;
+      align-items: center;
+      margin-right: 25px;
+      // img {
+      //   margin-right: 15px;
+      // }
+      .user-icon{
+        font-size: 20px;
+        margin-right: 5px;
+      }
+    }
+    .shopping-cart {
+      position: relative;
+      display: inline-block;
+      .cart-icon{
+        font-size: 24px;
+      }
+      .quantity {
+        position: absolute;
+        top: -10%;
+        left: 80%;
+        // transform: translateX(-50%);
+        font-size: 14px;
+      }
+    }
+  }
+}

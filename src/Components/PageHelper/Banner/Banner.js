@@ -10,13 +10,13 @@ export const Banner = () => {
     <>
       <div className="banner">
         <img src={banner} alt="" />
-        <div className="content">
-          <div>
-            Reusable
-            <br />
-            Face Masks
+        <div className="banner-content">
+          Reusable
+          <br />
+          Face Masks
+          <div className="mt-lg">
+            <Button className="btn">Shop Now</Button>
           </div>
-          <Button>Shop Now</Button>
         </div>
       </div>
     </>
