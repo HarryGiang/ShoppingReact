@@ -1,15 +1,27 @@
-import { ShoppingCartOutlined, UserOutlined } from '@ant-design/icons';
-import { Badge } from "antd";
-import { ROUTER } from 'Constants/CommonContants';
+import { ShoppingCartOutlined, UserOutlined } from "@ant-design/icons";
+import { Avatar, Badge } from "Components/UI-Library";
+import { ROUTER } from "Constants/CommonContants";
+import { useStoreActions, useStoreState } from "easy-peasy";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 import "./index.less";
 
-
 const Header = () => {
   const { t } = useTranslation(["header"]);
+  const count = useStoreState((state) => state.cart.count);
+  const visible = useStoreState((state) => state.cart.visible);
+  // const onClose = useStoreState((state) => state.cart.onClose);
+  // const setVisible = useStoreActions((actions) => actions.cart.setVisible);
+
+  // const showCart = () => {
+  //   setVisible(visible);
+  // };
+  // const onClose = () => {
+  //   setOnclose();
+  // };
+
   return (
     <>
       <div className="header">
@@ -49,12 +61,12 @@ const Header = () => {
         </div>
         <div className="user-cart">
           <Link to={ROUTER.Login} className="login">
-            <UserOutlined className="user-icon" />
+            <Avatar size="small" className="avatar" icon={<UserOutlined />} />
             {t("login")}
           </Link>
-          <Link to={ROUTER.Cart} className="shopping-cart">
+          <Link to={visible} className="shopping-cart">
             <ShoppingCartOutlined className="cart-icon" />
-            <Badge className="quantity" size="small" count={5}>
+            <Badge className="quantity" size="small" count={count}>
               {/* <a href="#" className="head-example" /> */}
             </Badge>
           </Link>

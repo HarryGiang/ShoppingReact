@@ -1,18 +1,28 @@
-import { action, thunk } from 'easy-peasy';
-import axios from 'axios'
-
+import { tagItem } from "Constants/CommonContants";
+import { action, thunk } from "easy-peasy";
+import { getProducts } from "Services/home";
 const home = {
-  productList: [],
-  todos:"",
-  setTodo: action((state, payload) => {
-    state.todos =payload ;
+  products: [],
+  tags: tagItem,
+  loading: false,
+  setLoading: action((state, payload) => {
+    state.loading = payload;
   }),
-  setProductList: action((state, payload) => {
-    state.productList =payload ;
+  setTags: action((state, payload) => {
+    state.tags = payload;
   }),
-  saveTodo: thunk(async (actions, payload) => {
-    const { data } = await axios.post('/todos', payload);
-    actions.setTodo(data);
+  setProducts: action((state, payload) => {
+    state.products = payload;
+    state.loading = false;
+  }),
+  getProduct: thunk(async (actions) => {
+    actions.setLoading(true);
+    try {
+      const { data } = await getProducts();
+      actions.setProducts(data);
+    } catch (error) {
+      actions.setProducts([]);
+    }
   }),
 };
 

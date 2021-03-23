@@ -1,4 +1,8 @@
 import {
+  InputNumber,
+  Form,
+  Checkbox,
+  Collapse,
   Avatar,
   Button,
   Card,
@@ -33,9 +37,13 @@ import {
   Rate,
   Tag,
   Progress,
+  Drawer,
 } from "antd";
 
 export {
+  InputNumber,
+  Form,
+  Checkbox,
   Avatar,
   Button,
   Card,
@@ -43,6 +51,7 @@ export {
   Typography,
   Row,
   Col,
+  Collapse,
   Menu,
   Input,
   Alert,
@@ -70,4 +79,5 @@ export {
   Rate,
   Tag,
   Progress,
+  Drawer,
 };
