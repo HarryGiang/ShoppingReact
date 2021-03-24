@@ -1,4 +1,4 @@
-import { Col, Row, InputNumber } from "Components/UI-Library";
+import { Col, Row, InputNumber, Button } from "Components/UI-Library";
 import React from "react";
 import { Link } from "react-router-dom";
 import "./index.less";
@@ -6,7 +6,6 @@ import { CloseOutlined } from "Components/UI-Library/Icons";
 import { useStoreActions, useStoreState } from "easy-peasy";
 
 const ProductCart = () => {
-  const count = useStoreState((state) => state.cart.count);
   const cart = useStoreState((state) => state.cart.cart);
   const setRemoveProduct = useStoreActions(
     (action) => action.cart.setRemoveProduct
@@ -21,7 +20,7 @@ const ProductCart = () => {
 
   return (
     <div className="product-cart-wrapper">
-      {count ? (
+      {cart.length ? (
         cart.map((item) => {
           return (
             <Row justify="space-between" className="product-item" key={item.id}>
@@ -43,7 +42,7 @@ const ProductCart = () => {
                     <InputNumber
                       size="small"
                       min={1}
-                      defaultValue={1}
+                      value={1}
                       onChange={onChange}
                     />
                   </Col>
@@ -55,9 +54,9 @@ const ProductCart = () => {
                     ${item.price}
                   </Col>
                   <Col span={12}>
-                    <Link to={() => handleRemoveCart(item)}>
+                    <Button className="btn-remove" onClick={() => handleRemoveCart(item)}>
                       <CloseOutlined />
-                    </Link>
+                    </Button>
                   </Col>
                 </Row>
               </Col>

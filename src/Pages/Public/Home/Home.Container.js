@@ -53,7 +53,7 @@ const Home = () => {
                     <ProductItem
                       name={item.name}
                       price={item.price}
-                      image={item.image[0]}
+                      image={item.image}
                     />
                   </Col>
                 );

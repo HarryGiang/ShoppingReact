@@ -7,7 +7,6 @@ import React from "react";
 import "./index.less";
 
 const Checkout = () => {
-  const count = useStoreState((state) => state.cart.count);
   const cart = useStoreState((state) => state.cart.cart);
 
   return (
@@ -23,12 +22,7 @@ const Checkout = () => {
             <Row justify="space-between">
               <Col>Subtotal</Col>
               <Col>
-                $
-                {count
-                  ? cart.reduce((acc, cur) => {
-                      return acc.price + cur.price;
-                    })
-                  : "0.00"}
+              ${cart ? cart.reduce((acc, cur) => acc + cur.price, 0) : 0}
               </Col>
             </Row>
             <Row justify="space-between" className="shipping">
@@ -38,12 +32,7 @@ const Checkout = () => {
             <Row align="middle" justify="space-between" className="total">
               <Col className="sub-total">Total</Col>
               <Col className="price-total">
-                $
-                {count
-                  ? cart.reduce((acc, cur) => {
-                      return acc.price + cur.price;
-                    })
-                  : "0.00"}
+              ${cart ? cart.reduce((acc, cur) => acc + cur.price, 0) : 0}
               </Col>
             </Row>
             <Button type="primary">

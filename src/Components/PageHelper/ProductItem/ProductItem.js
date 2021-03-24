@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import './index.less';
 
-export const ProductItem = ({ name, price, image, tag, discount }) => {
+export const ProductItem = ({ name, price, image, tag }) => {
   return (
     <div className="product-item-wrapper">
       <Link to={ROUTER.ProductDetail} className="link">
@@ -15,7 +15,7 @@ export const ProductItem = ({ name, price, image, tag, discount }) => {
           </div>
           <div className="product-content">
             <div className="product-name">{name}</div>
-            <div className="product-price">${price}</div>
+            <div className="product-price">${price.toFixed(2)}</div>
           </div>
         </div>
       </Link>

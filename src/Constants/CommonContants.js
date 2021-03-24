@@ -25,7 +25,6 @@ export const ROUTER = {
   Register: "/register",
   Forbidden: "/forbidden",
   ProductDetail: "/product-detail",
-  Cart: "/cart",
   Shop: "/shop",
   FAQ: "/faq",
   Contact: "/contact",
