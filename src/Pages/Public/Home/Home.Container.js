@@ -62,7 +62,9 @@ const Home = () => {
           </div>
 
           <div className="text-center">
-          <Link to={ROUTER.Shop}><Button className="btn">Shop All</Button></Link>
+            <Link to={ROUTER.Shop}>
+              <Button className="btn">Shop All</Button>
+            </Link>
           </div>
           <div className="title">{t("Our Masks")}</div>
           <Row gutter={[40, 40]}>

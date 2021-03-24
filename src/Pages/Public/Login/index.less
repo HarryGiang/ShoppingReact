@@ -1,7 +1,18 @@
 @import "~antd/lib/style/themes/default.less";
+@blue: #0a1fdb;
 
 .login-wrapper {
-    padding: 30px 0;
+  padding: 20px 0;
+  .login-banner {
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  .label {
+    color: @blue;
+    margin-bottom: @margin-xs;
+  }
   .form-wrapper {
     padding: 50px;
     border: 1px solid #ccc;
@@ -11,7 +22,7 @@
     font-size: 48px;
     margin-bottom: @margin-lg;
   }
-  .register-now{
+  .register-now {
     margin-top: @margin-sm;
   }
 }

@@ -91,7 +91,7 @@ const Footer = () => {
         </Col>
       </Row>
       <div className="absolute-footer">
-        {t("© 2023 by Visage. Proudly created with")} <a href="#">Wix.com</a>
+        {t("© 2023 by Visage. Proudly created with")} <Link to="#">Wix.com</Link>
       </div>
     </div>
   );

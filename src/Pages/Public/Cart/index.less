@@ -1,6 +1,25 @@
 @import "~antd/lib/style/themes/default.less";
 @blue: #0a1fdb;
-
+.cart-wrapper {
+  .shopping-cart {
+    border: none;
+    color: @black;
+    position: relative;
+    display: inline-block;
+    &:hover {
+      border: none;
+    }
+    .cart-icon {
+      font-size: 24px;
+    }
+    .quantity {
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      font-size: 14px;
+    }
+  }
+}
 
 .footer-cart {
   padding: 0 @padding-sm;
@@ -12,7 +31,6 @@
     font-size: 26px;
   }
 }
-.product-price-total{
+.product-price-total {
   display: none;
 }
-

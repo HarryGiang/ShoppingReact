@@ -72,28 +72,40 @@ export const products = [
     name: "I'm a Product",
     price: "10.00",
     color: "pink",
-    image: [Product1, "https://static.wixstatic.com/media/84770f_4fd1c929921046e1acee5520f78ff44d~mv2.jpg/v1/fill/w_96,h_96,q_85,usm_0.66_1.00_0.01/84770f_4fd1c929921046e1acee5520f78ff44d~mv2.webp", Product7],
+    image: [Product1, Product6, Product7],
   },
   {
     id: 2,
     name: "I'm a Product",
     price: "10.00",
     color: "red",
-    image: [Product2, "https://static.wixstatic.com/media/84770f_32b5174906e746039427179b9e077cae~mv2.jpg/v1/fill/w_96,h_96,q_85,usm_0.66_1.00_0.01/84770f_32b5174906e746039427179b9e077cae~mv2.webp", Product7],
+    image: [
+      Product2,
+      Product6,
+      Product7,
+    ],
   },
   {
     id: 3,
     name: "I'm a Product",
     price: "10.00",
     color: "yellow",
-    image: [Product3, "https://static.wixstatic.com/media/84770f_96be5e3c9bbd4ad8b10decf2d1aa80b7~mv2.jpg/v1/fill/w_96,h_96,q_85,usm_0.66_1.00_0.01/84770f_96be5e3c9bbd4ad8b10decf2d1aa80b7~mv2.webp", Product7],
+    image: [
+      Product3,
+      Product6,
+      Product7,
+    ],
   },
   {
     id: 4,
     name: "I'm a Product",
     price: "10.00",
     color: "gray",
-    image: [Product4, "https://static.wixstatic.com/media/84770f_03564240a45d424688bbb43d83063992~mv2.jpg/v1/fill/w_96,h_96,q_85,usm_0.66_1.00_0.01/84770f_03564240a45d424688bbb43d83063992~mv2.webp", Product7],
+    image: [
+      Product4,
+      Product6,
+      Product7,
+    ],
   },
 ];
 
@@ -103,7 +115,8 @@ export const shopProduct = [
     name: "I'm a Product",
     price: "10.00",
     color: "pink",
-    image: "https://static.wixstatic.com/media/84770f_4fd1c929921046e1acee5520f78ff44d~mv2.jpg/v1/fill/w_96,h_96,q_85,usm_0.66_1.00_0.01/84770f_4fd1c929921046e1acee5520f78ff44d~mv2.webp",
+    image:
+      "https://static.wixstatic.com/media/84770f_4fd1c929921046e1acee5520f78ff44d~mv2.jpg/v1/fill/w_96,h_96,q_85,usm_0.66_1.00_0.01/84770f_4fd1c929921046e1acee5520f78ff44d~mv2.webp",
   },
   {
     id: 2,

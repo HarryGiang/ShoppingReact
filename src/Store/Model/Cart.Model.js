@@ -1,20 +1,17 @@
-import { action, computed, thunk } from "easy-peasy";
+import { action, computed } from "easy-peasy";
 
 const cart = {
   cart: [],
-  visible: false,
-  count: computed(state => state.cart.length),
+  count: computed((state) => state.cart.length),
 
   setCart: action((state, payload) => {
     const data = state.cart;
     state.cart = [...data, payload];
   }),
-  setVisible: action((state) =>{
-    state.visible = true;
+  setRemoveProduct: action((state, payload) => {
+    console.log("payload", payload);
+    state.cart = state.cart.filter((item) => item.id !== payload.id);
   }),
-  setOnClose: action((state) =>{
-    state.visible = false;
-  })
 };
 
 export default cart;

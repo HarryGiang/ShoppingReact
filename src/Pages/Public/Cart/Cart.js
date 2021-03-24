@@ -1,40 +1,47 @@
-import React from "react";
-import { CloseOutlined } from "Components/UI-Library/Icons";
-import { Button, Col, Drawer, Row } from "Components/UI-Library";
-
-import "./index.less";
-import { useStoreActions, useStoreState } from "easy-peasy";
-import { ROUTER } from "Constants/CommonContants";
-import { Link } from "react-router-dom";
 import ProductCart from "Components/PageHelper/ProductCart";
+import { Badge, Button, Col, Drawer, Row } from "Components/UI-Library";
+import {
+  CloseOutlined,
+  ShoppingCartOutlined,
+} from "Components/UI-Library/Icons";
+import { ROUTER } from "Constants/CommonContants";
+import { useStoreState } from "easy-peasy";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import "./index.less";
 
 const Cart = () => {
-  const visible = useStoreState((state) => state.cart.visible);
-  const setVisible = useStoreActions((actions) => actions.cart.setVisible);
-  const setOnClose = useStoreActions((actions) => actions.cart.setOnClose);
+  const count = useStoreState((state) => state.cart.count);
+  const cart = useStoreState((state) => state.cart.cart);
+  const [visible, setVisible] = useState(false);
 
   const showCart = () => {
-    setVisible(visible);
+    setVisible(true);
   };
+  const onClose = () => {
+    setVisible(false);
+  };
+
   return (
     <div className="cart-wrapper">
-      <Button type="primary" onClick={showCart} mask={false}>
-        Open
+      <Button onClick={showCart} className="shopping-cart">
+        <ShoppingCartOutlined className="cart-icon" />
+        <Badge className="quantity" size="small" count={count}></Badge>
       </Button>
       <Drawer
         closeIcon={<CloseOutlined />}
         width={350}
         title="My Cart"
         placement="right"
-        onClose={setOnClose}
+        onClose={onClose}
         visible={visible}
         footer={
-          <Row align="middle" gutter={[12,12]} className="footer-cart">
+          <Row align="middle" gutter={[12, 12]} className="footer-cart">
             <Col span={12} className="sub-total">
               Total:
             </Col>
             <Col span={12} className="price-total">
-              $10.00
+              ${count ? cart.reduce((acc, cur) => {return acc.price + cur.price}) : "0.00"}
             </Col>
             <Col span={24}>
               <Link to={ROUTER.Checkout}>
