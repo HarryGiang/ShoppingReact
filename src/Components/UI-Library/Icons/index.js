@@ -1,4 +1,5 @@
 import {
+  DollarCircleOutlined,
   UnlockOutlined,
   SettingOutlined,
   LogoutOutlined,
@@ -58,6 +59,7 @@ import {
 } from "@ant-design/icons";
 
 export {
+  DollarCircleOutlined,
   SettingOutlined,
   LogoutOutlined,
   FileImageOutlined,

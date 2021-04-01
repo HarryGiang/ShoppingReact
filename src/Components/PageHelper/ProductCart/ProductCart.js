@@ -1,18 +1,28 @@
-import { Col, Row, InputNumber, Button } from "Components/UI-Library";
+import { Button, Col, InputNumber, Row } from "Components/UI-Library";
+import { CloseOutlined } from "Components/UI-Library/Icons";
+import { ROUTER } from "Constants/CommonContants";
+import { useStoreActions, useStoreState } from "easy-peasy";
 import React from "react";
 import { Link } from "react-router-dom";
 import "./index.less";
-import { CloseOutlined } from "Components/UI-Library/Icons";
-import { useStoreActions, useStoreState } from "easy-peasy";
 
 const ProductCart = () => {
   const cart = useStoreState((state) => state.cart.cart);
+  const setAddQuantity = useStoreActions((action) => action.cart.setAddQuantity);
   const setRemoveProduct = useStoreActions(
     (action) => action.cart.setRemoveProduct
   );
 
-  const onChange = (value) => {
-    console.log("changed", value);
+  const onChange = (value, item) => {
+    console.log("value :>> ", value, item);
+    // if(value >item.quantity){
+    //   console.log("Cong");
+    // }
+    // else{
+    //   console.log("tru")
+    // }
+    console.log(value<item.quantity);
+    setAddQuantity({ ...item, quantity: value });
   };
   const handleRemoveCart = (payload) => {
     setRemoveProduct(payload);
@@ -28,22 +38,22 @@ const ProductCart = () => {
                 <Row gutter={16}>
                   <Col span={10}>
                     <div className="product-image">
-                      <Link to="">
+                      <Link to={`${ROUTER.ProductDetail}/${item.id}`}>
                         <img src={item.image[1]} alt="" />
                       </Link>
                     </div>
                   </Col>
                   <Col span={14}>
-                    <Link to="">
+                    <Link to={`${ROUTER.ProductDetail}/${item.id}`}>
                       <div className="product-name">{item.name}</div>
                     </Link>
-                    <div className="product-price">${item.price}</div>
-                    <div className="product-color">Color: </div>
+                    <div className="product-price">${item.price.toFixed(2)}</div>
+                    <div className="product-color">Color: {item.color}</div>
                     <InputNumber
                       size="small"
                       min={1}
-                      value={1}
-                      onChange={onChange}
+                      value={item.quantity}
+                      onChange={(value) => onChange(value, item)}
                     />
                   </Col>
                 </Row>
@@ -51,10 +61,13 @@ const ProductCart = () => {
               <Col>
                 <Row gutter={48}>
                   <Col span={12} className="product-price-total">
-                    ${item.price}
+                    ${(item.price*item.quantity).toFixed(2)}
                   </Col>
                   <Col span={12}>
-                    <Button className="btn-remove" onClick={() => handleRemoveCart(item)}>
+                    <Button
+                      className="btn-remove"
+                      onClick={() => handleRemoveCart(item)}
+                    >
                       <CloseOutlined />
                     </Button>
                   </Col>

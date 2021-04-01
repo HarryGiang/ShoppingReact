@@ -41,7 +41,10 @@ const Cart = () => {
               Total:
             </Col>
             <Col span={12} className="price-total">
-              ${cart.length ? cart.reduce((acc, cur) => acc + cur.price, 0) : 0}
+              $
+              {cart.length
+                ? cart.reduce((acc, cur) => acc + cur.price * cur.quantity, 0).toFixed(2)
+                : 0}
             </Col>
             <Col span={24}>
               <Link to={ROUTER.Checkout}>

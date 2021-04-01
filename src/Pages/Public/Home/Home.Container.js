@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import Intro2 from "Assets/Icons/ic-3-layers.svg";
 import Intro1 from "Assets/Icons/ic-fits-all.svg";
 import Intro3 from "Assets/Icons/ic-washable.svg";
@@ -8,27 +7,22 @@ import { IntroItem } from "Components/PageHelper/IntroItem";
 import { ProductItem } from "Components/PageHelper/ProductItem";
 import { Button, Carousel, Col, Row, Spin } from "Components/UI-Library";
 import { LoadingOutlined } from "Components/UI-Library/Icons";
-import { useStoreState, useStoreActions } from "easy-peasy";
+import { ROUTER } from "Constants/CommonContants";
+import { useStoreActions, useStoreState } from "easy-peasy";
+import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import "./Home.less";
-import { ROUTER } from "Constants/CommonContants";
 
 const Home = () => {
   const { t } = useTranslation(["home"]);
   const tags = useStoreState((state) => state.home.tags);
   const products = useStoreState((state) => state.home.products);
   const loading = useStoreState((state) => state.home.loading);
-  const setProductDetail = useStoreActions(
-    (actions) => actions.products.setProductDetail
-  );
   const getProduct = useStoreActions((actions) => actions.home.getProduct);
   useEffect(() => {
     getProduct();
   }, [getProduct]);
-  const onHandleProductDetail = (data) => {
-    setProductDetail(data);
-  };
   return (
     <Spin indicator={<LoadingOutlined />} spinning={loading}>
       <div className="main">
@@ -49,11 +43,12 @@ const Home = () => {
             <Row gutter={[40, 40]}>
               {products.map((item) => {
                 return (
-                  <Col span={6} onClick={() => onHandleProductDetail(item)}>
+                  <Col span={6}>
                     <ProductItem
                       name={item.name}
                       price={item.price}
                       image={item.image}
+                      id={item.id}
                     />
                   </Col>
                 );

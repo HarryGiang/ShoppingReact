@@ -1,12 +1,12 @@
 import { ROUTER } from "Constants/CommonContants";
 import React from "react";
 import { Link } from "react-router-dom";
-import './index.less';
+import "./index.less";
 
-export const ProductItem = ({ name, price, image, tag }) => {
+export const ProductItem = ({ name, price, image, tag, id }) => {
   return (
     <div className="product-item-wrapper">
-      <Link to={ROUTER.ProductDetail} className="link">
+      <Link to={`${ROUTER.ProductDetail}/${id}`} className="link">
         <div className="product-item">
           <div className="product-image">
             <img src={image} alt="" />

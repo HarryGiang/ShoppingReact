@@ -1,12 +1,26 @@
+import { useForm } from "react-hook-form";
+import InputField from "Components/Form-control/InputField";
 import Headline from "Components/PageHelper/Headline";
-import { Button, Col, Form, Input, Row } from "Components/UI-Library";
+import { Button, Col, Form, Row } from "Components/UI-Library";
 import React from "react";
 
 import "./index.less";
 
-const { TextArea } = Input;
-
 const Contact = () => {
+  const form = useForm({
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      subject: "",
+      message: "",
+    },
+  });
+
+  const handleSubmit = (value) => {
+    console.log(`value`, value);
+  };
+
   return (
     <div>
       <Headline label="Get in Touch" />
@@ -21,27 +35,46 @@ const Contact = () => {
           </Col>
           <Col span={16} className="contact-col">
             <div className="title">Fill in Your Details</div>
-            <Form>
+            <Form onSubmit={form.handleSubmit(handleSubmit)}>
               <Row gutter={[48, 24]}>
                 <Col span={10}>
-                  <div className="label">First Name</div>
-                  <Input label="" />
+                  <InputField
+                    label="First Name"
+                    name="firstName"
+                    form={form}
+                    isRequired
+                  />
                 </Col>
                 <Col span={10}>
-                  <div className="label">Last Name</div>
-                  <Input />
+                  <InputField
+                    label="Last Name"
+                    name="lastName"
+                    form={form}
+                    isRequired
+                  />
                 </Col>
                 <Col span={10}>
-                  <div className="label">Email</div>
-                  <Input label="" />
+                  <InputField
+                    label="Email"
+                    name="email"
+                    form={form}
+                    isRequired
+                  />
                 </Col>
                 <Col span={10}>
-                  <div className="label">Subject</div>
-                  <Input />
+                  <InputField
+                    label="Subject"
+                    name="subject"
+                    form={form}
+                  />
                 </Col>
                 <Col span={20}>
-                  <div className="label">Leave us a message...</div>
-                  <TextArea  />
+                  <InputField
+                    label="Leave us a message..."
+                    name="message"
+                    form={form}
+                    textArea
+                  />
                 </Col>
                 <Col span={10}>
                   <Button>Submit</Button>

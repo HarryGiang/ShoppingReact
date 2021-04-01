@@ -29,6 +29,7 @@ export const ROUTER = {
   FAQ: "/faq",
   Contact: "/contact",
   Checkout: "/checkout",
+  Payment: "/payment",
 };
 export const tagItem = [
   {

@@ -38,6 +38,7 @@ import {
   Tag,
   Progress,
   Drawer,
+  Radio,
 } from "antd";
 
 export {
@@ -80,4 +81,5 @@ export {
   Tag,
   Progress,
   Drawer,
+  Radio,
 };

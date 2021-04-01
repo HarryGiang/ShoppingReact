@@ -1,23 +1,47 @@
-import { Button, Checkbox, Col, Form, Input, Row } from "Components/UI-Library";
+import InputField from "Components/Form-control/InputField";
+import { Button, Checkbox, Col, Form, Row } from "Components/UI-Library";
 import { ROUTER } from "Constants/CommonContants";
 import React from "react";
+import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import "./index.less";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
 const Login = () => {
+  const schema = yup.object().shape({
+    email: yup.string().required('Please type your email.'),
+    password: yup.string().required('Please type your password.'),
+  });
+
+  const form = useForm({
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+    resolvers: yupResolver(schema),
+  });
+
+  const handleSubmit = (value) => {
+    console.log("value :>> ", value);
+  };
+
   return (
     <div className="login-wrapper">
       <Row>
         <Col span={8} className="form-wrapper">
           <div className="login">Log In</div>
-          <Form>
+          <Form onSubmit={form.handleSubmit(handleSubmit)}>
             <Form.Item>
-              <div className="label">Email*</div>
-              <Input type="email" />
+              <InputField name="email" label="Email" form={form} isRequired />
             </Form.Item>
             <Form.Item>
-              <div className="label">Password*</div>
-              <Input.Password />
+              <InputField
+                name="password"
+                label="Password"
+                form={form}
+                isRequired
+              />
             </Form.Item>
             <Form.Item>
               <Row justify="space-between">

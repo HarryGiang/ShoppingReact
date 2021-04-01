@@ -5,3 +5,8 @@ export const getShop = async (param) => {
   const response = await axios.get(API.SHOP);
   return response;
 };
+
+export const getProductShopId = async (id) => {
+  const response = await axios.get(`${API.SHOP}/${id}`);
+  return response;
+};
