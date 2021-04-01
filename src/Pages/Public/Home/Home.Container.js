@@ -1,28 +1,28 @@
-import Intro2 from "Assets/Icons/ic-3-layers.svg";
-import Intro1 from "Assets/Icons/ic-fits-all.svg";
-import Intro3 from "Assets/Icons/ic-washable.svg";
-import Artical from "Assets/Images/09.jpg";
-import { Banner } from "Components/PageHelper/Banner";
-import { IntroItem } from "Components/PageHelper/IntroItem";
-import { ProductItem } from "Components/PageHelper/ProductItem";
-import { Button, Carousel, Col, Row, Spin } from "Components/UI-Library";
-import { LoadingOutlined } from "Components/UI-Library/Icons";
-import { ROUTER } from "Constants/CommonContants";
-import { useStoreActions, useStoreState } from "easy-peasy";
-import React, { useEffect } from "react";
-import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
-import "./Home.less";
+import Intro2 from 'Assets/Icons/ic-3-layers.svg'
+import Intro1 from 'Assets/Icons/ic-fits-all.svg'
+import Intro3 from 'Assets/Icons/ic-washable.svg'
+import Artical from 'Assets/Images/09.jpg'
+import { Banner } from 'Components/PageHelper/Banner'
+import { IntroItem } from 'Components/PageHelper/IntroItem'
+import { ProductItem } from 'Components/PageHelper/ProductItem'
+import { Button, Carousel, Col, Row, Spin } from 'Components/UI-Library'
+import { LoadingOutlined } from 'Components/UI-Library/Icons'
+import { ROUTER } from 'Constants/CommonContants'
+import { useStoreActions, useStoreState } from 'easy-peasy'
+import React, { useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
+import './Home.less'
 
 const Home = () => {
-  const { t } = useTranslation(["home"]);
-  const tags = useStoreState((state) => state.home.tags);
-  const products = useStoreState((state) => state.home.products);
-  const loading = useStoreState((state) => state.home.loading);
-  const getProduct = useStoreActions((actions) => actions.home.getProduct);
+  const { t } = useTranslation(['home'])
+  const tags = useStoreState((state) => state.home.tags)
+  const products = useStoreState((state) => state.home.products)
+  const loading = useStoreState((state) => state.home.loading)
+  const getProduct = useStoreActions((actions) => actions.home.getProduct)
   useEffect(() => {
-    getProduct();
-  }, [getProduct]);
+    getProduct()
+  }, [getProduct])
   return (
     <Spin indicator={<LoadingOutlined />} spinning={loading}>
       <div className="main">
@@ -38,7 +38,7 @@ const Home = () => {
           </div>
         </Carousel>
         <div className="content">
-          <div className="title">{t("Most Popular")}</div>
+          <div className="title">{t('Most Popular')}</div>
           <div className="most-product">
             <Row gutter={[40, 40]}>
               {products.map((item) => {
@@ -51,7 +51,7 @@ const Home = () => {
                       id={item.id}
                     />
                   </Col>
-                );
+                )
               })}
             </Row>
           </div>
@@ -61,7 +61,7 @@ const Home = () => {
               <Button className="btn">Shop All</Button>
             </Link>
           </div>
-          <div className="title">{t("Our Masks")}</div>
+          <div className="title">{t('Our Masks')}</div>
           <Row gutter={[40, 40]}>
             <Col span={8}>
               <IntroItem
@@ -88,13 +88,13 @@ const Home = () => {
               />
             </Col>
           </Row>
-          <div className="title">{t("What We Stand For")}</div>
+          <div className="title">{t('What We Stand For')}</div>
           <Row gutter={[40, 40]}>
             <Col span={12}>
               <div className="col-left">
                 <div className="col-left-content text-center">
                   {t(
-                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas sequi quisquam eum et consequatur accusamus nam quia ratione minima recusandae placeat eius voluptatum animi ducimus nemo, maiores veniam ab! Voluptas eligendi, quam placeat ipsam maxime nemo vero ea voluptate quod ducimus enim cumque quisquam velit accusamus sequi quia nulla delectus!"
+                    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas sequi quisquam eum et consequatur accusamus nam quia ratione minima recusandae placeat eius voluptatum animi ducimus nemo, maiores veniam ab! Voluptas eligendi, quam placeat ipsam maxime nemo vero ea voluptate quod ducimus enim cumque quisquam velit accusamus sequi quia nulla delectus!'
                   )}
                 </div>
               </div>
@@ -106,14 +106,14 @@ const Home = () => {
             </Col>
           </Row>
           <div className="title">
-            {t("Tag Us on Your Daily Cruise #visage")}
+            {t('Tag Us on Your Daily Cruise #visage')}
           </div>
           <div className="bg-light-pink">
             <div className="tag">
               <Row gutter={[80, 80]}>
                 {tags.map((item, index) => {
                   return (
-                    <Col span={6} key={index}>
+                    <Col span={6} key={index.toString()}>
                       <div className="tag-item">
                         <Link to="/">
                           <img src={item.image} alt="" />
@@ -122,7 +122,7 @@ const Home = () => {
                         </Link>
                       </div>
                     </Col>
-                  );
+                  )
                 })}
               </Row>
             </div>
@@ -130,6 +130,7 @@ const Home = () => {
         </div>
       </div>
     </Spin>
-  );
-};
-export default Home;
+  )
+}
+
+export default Home

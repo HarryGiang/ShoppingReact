@@ -1,2 +1,3 @@
-import ProductCart from "./ProductCart";
-export default ProductCart;
+import ProductCart from './ProductCart'
+
+export default ProductCart

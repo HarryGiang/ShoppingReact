@@ -1,26 +1,27 @@
-import ProductCart from "Components/PageHelper/ProductCart";
-import { Badge, Button, Col, Drawer, Row } from "Components/UI-Library";
+import React, { useState } from 'react'
+import { useStoreState } from 'easy-peasy'
+import { Link } from 'react-router-dom'
+
+import ProductCart from 'Components/PageHelper/ProductCart'
+import { Badge, Button, Col, Drawer, Row } from 'Components/UI-Library'
 import {
   CloseOutlined,
   ShoppingCartOutlined,
-} from "Components/UI-Library/Icons";
-import { ROUTER } from "Constants/CommonContants";
-import { useStoreState } from "easy-peasy";
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import "./index.less";
+} from 'Components/UI-Library/Icons'
+import { ROUTER } from 'Constants/CommonContants'
+import './index.less'
 
 const Cart = () => {
-  const count = useStoreState((state) => state.cart.count);
-  const cart = useStoreState((state) => state.cart.cart);
-  const [visible, setVisible] = useState(false);
+  const count = useStoreState((state) => state.cart.count)
+  const cart = useStoreState((state) => state.cart.cart)
+  const [visible, setVisible] = useState(false)
 
   const showCart = () => {
-    setVisible(true);
-  };
+    setVisible(true)
+  }
   const onClose = () => {
-    setVisible(false);
-  };
+    setVisible(false)
+  }
 
   return (
     <div className="cart-wrapper">
@@ -43,7 +44,9 @@ const Cart = () => {
             <Col span={12} className="price-total">
               $
               {cart.length
-                ? cart.reduce((acc, cur) => acc + cur.price * cur.quantity, 0).toFixed(2)
+                ? cart
+                    .reduce((acc, cur) => acc + cur.price * cur.quantity, 0)
+                    .toFixed(2)
                 : 0}
             </Col>
             <Col span={24}>
@@ -57,7 +60,7 @@ const Cart = () => {
         <ProductCart />
       </Drawer>
     </div>
-  );
-};
+  )
+}
 
-export default Cart;
+export default Cart

@@ -1,3 +1,3 @@
-import Home from "./Home.Container";
+import Home from './Home.Container'
 
-export default Home;
+export default Home

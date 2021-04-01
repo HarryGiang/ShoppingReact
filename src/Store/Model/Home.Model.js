@@ -1,29 +1,30 @@
-import { tagItem } from "Constants/CommonContants";
-import { action, thunk } from "easy-peasy";
-import { getProducts } from "Services/home";
+import { tagItem } from 'Constants/CommonContants'
+import { action, thunk } from 'easy-peasy'
+import { getProducts } from 'Services/home'
+
 const home = {
   products: [],
   tags: tagItem,
   loading: false,
   setLoading: action((state, payload) => {
-    state.loading = payload;
+    state.loading = payload
   }),
   setTags: action((state, payload) => {
-    state.tags = payload;
+    state.tags = payload
   }),
   setProducts: action((state, payload) => {
-    state.products = payload;
-    state.loading = false;
+    state.products = payload
+    state.loading = false
   }),
   getProduct: thunk(async (actions) => {
-    actions.setLoading(true);
+    actions.setLoading(true)
     try {
-      const { data } = await getProducts();
-      actions.setProducts(data);
+      const { data } = await getProducts()
+      actions.setProducts(data)
     } catch (error) {
-      actions.setProducts([]);
+      actions.setProducts([])
     }
   }),
-};
+}
 
-export default home;
+export default home

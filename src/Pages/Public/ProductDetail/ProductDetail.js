@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from "react-responsive-carousel";
+import React, { useEffect, useState } from 'react'
+import 'react-responsive-carousel/lib/styles/carousel.min.css' // requires a loader
+import { Carousel } from 'react-responsive-carousel'
 import {
   Row,
   Col,
@@ -11,64 +11,66 @@ import {
   Radio,
   message,
   Spin,
-} from "Components/UI-Library";
-import get from "lodash/get";
+} from 'Components/UI-Library'
+import get from 'lodash/get'
 import {
   HeartOutlined,
   PlusOutlined,
   MinusOutlined,
   LoadingOutlined,
-} from "Components/UI-Library/Icons";
+} from 'Components/UI-Library/Icons'
 
-import "./index.less";
-import { Link, useParams, useHistory } from "react-router-dom";
-import { useStoreActions, useStoreState } from "easy-peasy";
-import { ROUTER } from "Constants/CommonContants";
+import './index.less'
+import { Link, useParams, useHistory } from 'react-router-dom'
+import { useStoreActions, useStoreState } from 'easy-peasy'
+import { ROUTER } from 'Constants/CommonContants'
 
-const { Panel } = Collapse;
+const { Panel } = Collapse
 
 const ProductDetail = () => {
-  let { id } = useParams();
-  let history = useHistory();
-  const productDetail = useStoreState((state) => state.products.productDetail);
-  const setCart = useStoreActions((actions) => actions.cart.setCart);
-  const loading = useStoreState((state) => state.products.loading);
+  let { id } = useParams()
+  let history = useHistory()
+  const productDetail = useStoreState((state) => state.products.productDetail)
+  const setCart = useStoreActions((actions) => actions.cart.setCart)
+  const loading = useStoreState((state) => state.products.loading)
   const getProductId = useStoreActions(
     (actions) => actions.products.getProductId
-  );
+  )
   const getProductShopId = useStoreActions(
     (actions) => actions.products.getProductShopId
-  );
+  )
   useEffect(() => {
-    getProductId(id);
-  }, [getProductId, id]);
+    getProductId(id)
+  }, [getProductId, id])
   useEffect(() => {
-    getProductShopId(id);
-  }, [getProductShopId, id]);
+    getProductShopId(id)
+  }, [getProductShopId, id])
   const [variant, setVariant] = useState({
     color: null,
     quantity: 1,
-  });
+  })
   const onHandleColor = (e) => {
-    setVariant((prev) => ({ ...prev, color: e.target.value }));
-  };
+    setVariant((prev) => ({ ...prev, color: e.target.value }))
+  }
 
   const onHandleQuantity = (value) => {
-    setVariant((prev) => ({ ...prev, quantity: value }));
-  };
+    setVariant((prev) => ({ ...prev, quantity: value }))
+  }
   const onHandleAdd = (payload) => {
-    !variant.color
-      ? message.error("Please choose color of product")
-      : setCart({ ...payload, ...variant });
-  };
+    if (variant.color) {
+      message.error('Please choose color of product')
+    } else {
+      setCart({ ...payload, ...variant })
+    }
+  }
   const onHandleBuyNow = (payload) => {
     if (!variant.color) {
-      message.error("Please choose color of product");
+      message.error('Please choose color of product')
     } else {
-      setCart({ ...payload, ...variant });
-      history.push(ROUTER.Checkout);
+      setCart({ ...payload, ...variant })
+      history.push(ROUTER.Checkout)
     }
-  };
+  }
   return (
     <>
       {loading ? (
@@ -90,7 +92,7 @@ const ProductDetail = () => {
             <Col span={14}>
               <div className="product-image">
                 <Carousel infiniteLoop="true">
-                  {get(productDetail, "image", []).map((item) => (
+                  {get(productDetail, 'image', []).map((item) => (
                     <div>
                       <img src={item} alt="" />
                     </div>
@@ -157,7 +159,7 @@ const ProductDetail = () => {
               </div>
               <Collapse
                 ghost
-                expandIconPosition={"right"}
+                expandIconPosition={'right'}
                 expandIcon={({ isActive }) =>
                   isActive ? <MinusOutlined /> : <PlusOutlined />
                 }
@@ -182,11 +184,7 @@ const ProductDetail = () => {
                 </Panel>
                 <Panel header="Shipping Info" key="3">
                   <p>
-                    I'm a shipping policy. I'm a great place to add more
-                    information about your shipping methods, packaging and cost.
-                    Providing straightforward information about your shipping
-                    policy is a great way to build trust and reassure your
-                    customers that they can buy from you with confidence.
+                    {`  I'm a shipping policy. I'm a great place to add more  information about your shipping methods, packaging and cost.    Providing straightforward information about your shipping   policy is a great way to build trust and reassure your  customers that they can buy from you with confidence.`}
                   </p>
                 </Panel>
               </Collapse>
@@ -195,6 +193,6 @@ const ProductDetail = () => {
         </div>
       )}
     </>
-  );
-};
-export default ProductDetail;
+  )
+}
+export default ProductDetail
