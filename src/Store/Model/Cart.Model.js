@@ -7,7 +7,7 @@ const cart = {
   count: computed((state) => state.cart.length),
 
   setCart: action((state, payload) => {
-    console.log('payload :>> ', payload)
+    // console.log('payload :>> ', payload)
     const data = state.cart
     for (let i = 0; i < state.cart.length; i += 1) {
       if (

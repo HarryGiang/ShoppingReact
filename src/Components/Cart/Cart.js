@@ -27,7 +27,7 @@ const Cart = () => {
     <div className="cart-wrapper">
       <Button onClick={showCart} className="shopping-cart">
         <ShoppingCartOutlined className="cart-icon" />
-        <Badge className="quantity" size="small" count={count}></Badge>
+        <Badge className="quantity" size="small" count={count} />
       </Button>
       <Drawer
         closeIcon={<CloseOutlined />}

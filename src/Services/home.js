@@ -1,7 +1,7 @@
 import { API } from "Constants/CommonContants";
 import axios from "axios";
 
-export const getProducts = async (param) => {
+export const getProducts = async () => {
   const response = await axios.get(API.PRODUCT);
   return response;
 };

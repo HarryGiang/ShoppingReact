@@ -117,7 +117,7 @@ const Home = () => {
                       <div className="tag-item">
                         <Link to="/">
                           <img src={item.image} alt="" />
-                          <div className="box-overlay"></div>
+                          <div className="box-overlay" />
                           <div className="tag-content">{item.tag}</div>
                         </Link>
                       </div>

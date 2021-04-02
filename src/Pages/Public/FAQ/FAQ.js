@@ -18,7 +18,7 @@ const FAQ = () => {
           </Col>
           <Col span={16} offset={4}>
             <Collapse
-              expandIconPosition={'right'}
+              expandIconPosition="right"
               expandIcon={({ isActive }) =>
                 isActive ? <MinusOutlined /> : <PlusOutlined />
               }

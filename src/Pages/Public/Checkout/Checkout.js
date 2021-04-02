@@ -1,20 +1,20 @@
-import ProductCart from "Components/PageHelper/ProductCart";
-import { Button, Col, Row } from "Components/UI-Library";
-import { UnlockOutlined } from "Components/UI-Library/Icons";
-import { ROUTER } from "Constants/CommonContants";
-import { useStoreState } from "easy-peasy";
-import React from "react";
-import { useHistory } from "react-router-dom";
+import ProductCart from 'Components/PageHelper/ProductCart'
+import { Button, Col, Row } from 'Components/UI-Library'
+import { UnlockOutlined } from 'Components/UI-Library/Icons'
+import { ROUTER } from 'Constants/CommonContants'
+import { useStoreState } from 'easy-peasy'
+import React from 'react'
+import { useHistory } from 'react-router-dom'
 
-import "./index.less";
+import './index.less'
 
 const Checkout = () => {
-  const history = useHistory();
-  const cart = useStoreState((state) => state.cart.cart);
+  const history = useHistory()
+  const cart = useStoreState((state) => state.cart.cart)
 
   const handleCheckout = () => {
-    history.push(ROUTER.Payment);
-  };
+    history.push(ROUTER.Payment)
+  }
 
   return (
     <Row className="checkout-wrapper">
@@ -39,13 +39,7 @@ const Checkout = () => {
             </Row>
             <Row justify="space-between" className="shipping">
               <Col>Voucher</Col>
-              <Col>
-                $
-                {cart &&
-                  cart.map((item) =>
-                    item.shipping ? item.shipping.toFixed(2) : 0
-                  )}
-              </Col>
+              <Col>$0.00</Col>
             </Row>
             <Row align="middle" justify="space-between" className="total">
               <Col className="sub-total">Total</Col>
@@ -53,11 +47,7 @@ const Checkout = () => {
                 $
                 {cart
                   ? cart
-                      .reduce(
-                        (acc, cur) =>
-                          acc + cur.price * cur.quantity + cur.shipping,
-                        0
-                      )
+                      .reduce((acc, cur) => acc + cur.price * cur.quantity, 0)
                       .toFixed(2)
                   : 0}
               </Col>
@@ -70,7 +60,7 @@ const Checkout = () => {
         </Row>
       </Col>
     </Row>
-  );
-};
+  )
+}
 
-export default Checkout;
+export default Checkout

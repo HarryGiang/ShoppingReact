@@ -28,8 +28,8 @@ import { ROUTER } from 'Constants/CommonContants'
 const { Panel } = Collapse
 
 const ProductDetail = () => {
-  let { id } = useParams()
-  let history = useHistory()
+  const { id } = useParams()
+  const history = useHistory()
   const productDetail = useStoreState((state) => state.products.productDetail)
   const setCart = useStoreActions((actions) => actions.cart.setCart)
   const loading = useStoreState((state) => state.products.loading)
@@ -57,7 +57,7 @@ const ProductDetail = () => {
     setVariant((prev) => ({ ...prev, quantity: value }))
   }
   const onHandleAdd = (payload) => {
-    if (variant.color) {
+    if (!variant.color) {
       message.error('Please choose color of product')
     } else {
       setCart({ ...payload, ...variant })
@@ -86,7 +86,6 @@ const ProductDetail = () => {
                 </Breadcrumb.Item>
               </Breadcrumb>
             </Col>
-            <Col span={12}></Col>
           </Row>
           <Row gutter={[30, 30]}>
             <Col span={14}>
@@ -159,7 +158,7 @@ const ProductDetail = () => {
               </div>
               <Collapse
                 ghost
-                expandIconPosition={'right'}
+                expandIconPosition="right"
                 expandIcon={({ isActive }) =>
                   isActive ? <MinusOutlined /> : <PlusOutlined />
                 }

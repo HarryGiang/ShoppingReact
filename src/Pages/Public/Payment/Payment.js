@@ -1,28 +1,43 @@
-import { useForm } from "react-hook-form";
-import InputField from "Components/Form-control/InputField";
-import { Button, Col, Form, Radio, Row } from "Components/UI-Library";
-import { DollarCircleOutlined } from "Components/UI-Library/Icons";
-import { useStoreState } from "easy-peasy";
-import React from "react";
-import "./index.less";
+import { useForm } from 'react-hook-form'
+import InputField from 'Components/Form-control/InputField'
+import { Button, Col, Form, Radio, Row } from 'Components/UI-Library'
+import { DollarCircleOutlined } from 'Components/UI-Library/Icons'
+import { useStoreState } from 'easy-peasy'
+import React, { useState } from 'react'
+import './index.less'
+import * as yup from 'yup'
+import { yupResolver } from '@hookform/resolvers/yup'
 
 const Payment = () => {
-  const cart = useStoreState((state) => state.cart.cart);
+  const [payment, setPayment] = useState(null)
+  const cart = useStoreState((state) => state.cart.cart)
+
+  const schema = yup.object().shape({
+    firstName: yup.string().required(),
+    lastName: yup.string().required(),
+    email: yup.string().required(),
+    phoneNumber: yup.number().required(),
+    address: yup.string().required(),
+    message: yup.string().required(),
+  })
   const form = useForm({
     defaultValues: {
-      firstName: "",
-      lastName: "",
-      email: "",
-      subject: "",
-      message: "",
+      firstName: '',
+      lastName: '',
+      email: '',
+      phoneNumber: '',
+      address: '',
+      message: '',
     },
-  });
-  const handleSubmit = (value) => {
-    console.log(`value`, value);
-  };
+    resolvers: yupResolver(schema),
+  })
+
   const onHandleChange = (e) => {
-    console.log("value :>> ", e.target.value);
-  };
+    setPayment(e.target.value)
+  }
+  const handleSubmit = (value) => {
+    console.log(`value`, value)
+  }
 
   return (
     <Row className="payment-wrapper">
@@ -60,6 +75,15 @@ const Payment = () => {
                   <InputField
                     label="Phone Number"
                     name="phoneNumber"
+                    type="number"
+                    form={form}
+                    isRequired
+                  />
+                </Col>
+                <Col span={24}>
+                  <InputField
+                    label="Address"
+                    name="address"
                     form={form}
                     isRequired
                   />
@@ -114,7 +138,7 @@ const Payment = () => {
               </Col>
             </Row>
             <div className="payment-methods">
-              <Radio.Group onChange={onHandleChange}>
+              <Radio.Group onChange={onHandleChange} value={payment}>
                 <Row gutter={[12, 12]}>
                   <Col>
                     <Radio value={1}>Payment via Momo</Radio>
@@ -134,7 +158,7 @@ const Payment = () => {
         </Row>
       </Col>
     </Row>
-  );
-};
+  )
+}
 
-export default Payment;
+export default Payment
