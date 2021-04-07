@@ -1,28 +1,33 @@
-import { Input } from "Components/UI-Library";
-import React from "react";
-import { Controller } from "react-hook-form";
+import { Input } from 'Components/UI-Library'
+import React from 'react'
+import { Controller } from 'react-hook-form'
+import './index.less'
 
-const { TextArea } = Input;
+const { TextArea } = Input
+const { Password } = Input
 
 const InputField = ({ name, label, form, isRequired, type, textArea }) => {
-  const { errors, formState } = form;
-  const hasError = formState.touched[name] && errors[name];
+  const { errors } = form
+  const hasError = errors[name]
 
   return (
-    <>
+    <div className="input-field-wrapper">
       <div className="label">
         {label}
-        {isRequired && "*"}
+        {isRequired && '*'}
       </div>
       <Controller
         name={name}
         control={form.control}
-        as={textArea ? TextArea : Input}
+        as={
+          (type === 'password' && Password) ||
+          (textArea ? TextArea : Input)
+        }
         type={type}
-        errors={hasError}
       />
-    </>
-  );
-};
+      {hasError && <div className="error-message">{errors[name]?.message}</div>}
+    </div>
+  )
+}
 
-export default InputField;
+export default InputField

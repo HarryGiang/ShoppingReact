@@ -82,7 +82,7 @@ const ProductDetail = () => {
               <Breadcrumb>
                 <Breadcrumb.Item>Home</Breadcrumb.Item>
                 <Breadcrumb.Item>
-                  <Link to="/:id">{productDetail.name}</Link>
+                  <Link to={`${ROUTER.ProductDetail}/${productDetail.id}`}>{productDetail.name}</Link>
                 </Breadcrumb.Item>
               </Breadcrumb>
             </Col>

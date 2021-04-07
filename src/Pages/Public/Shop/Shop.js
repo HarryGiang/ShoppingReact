@@ -1,28 +1,28 @@
-import React, { useEffect } from "react";
-import { Row, Col, Spin } from "Components/UI-Library";
-import Headline from "Components/PageHelper/Headline";
-import { ProductItem } from "Components/PageHelper/ProductItem";
-import "./index.less";
-import { useStoreActions, useStoreState } from "easy-peasy";
-import { LoadingOutlined } from "Components/UI-Library/Icons";
+import React, { useEffect } from 'react'
+import { Row, Col, Spin, Pagination } from 'Components/UI-Library'
+import Headline from 'Components/PageHelper/Headline'
+import { ProductItem } from 'Components/PageHelper/ProductItem'
+import './index.less'
+import { useStoreActions, useStoreState } from 'easy-peasy'
+import { LoadingOutlined } from 'Components/UI-Library/Icons'
 
 const Shop = () => {
-  const productShop = useStoreState((state) => state.shop.productShop);
-  const loading = useStoreState((state) => state.shop.loading);
+  const productShop = useStoreState((state) => state.shop.productShop)
+  const loading = useStoreState((state) => state.shop.loading)
   const getProductShop = useStoreActions(
     (actions) => actions.shop.getProductShop
-  );
+  )
   const setProductDetail = useStoreActions(
     (actions) => actions.products.setProductDetail
-  );
+  )
 
   useEffect(() => {
-    getProductShop();
-  }, [getProductShop]);
+    getProductShop()
+  }, [getProductShop])
 
   const onHandleProductDetail = (data) => {
-    setProductDetail(data);
-  };
+    setProductDetail(data)
+  }
 
   return (
     <Spin indicator={<LoadingOutlined />} spinning={loading}>
@@ -44,13 +44,18 @@ const Shop = () => {
                     id={item.id}
                   />
                 </Col>
-              );
+              )
             })}
+          </Row>
+          <Row justify="center" className="pagination">
+            <Col>
+              <Pagination defaultCurren={1} total={50} />
+            </Col>
           </Row>
         </div>
       </div>
     </Spin>
-  );
-};
+  )
+}
 
-export default Shop;
+export default Shop

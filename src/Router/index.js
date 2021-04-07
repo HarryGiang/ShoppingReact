@@ -5,6 +5,7 @@ import Checkout from "Pages/Public/Checkout";
 import Contact from "Pages/Public/Contact";
 import FAQ from "Pages/Public/FAQ";
 import Login from "Pages/Public/Login";
+import NotFound from "Pages/Public/NotFound";
 import Payment from "Pages/Public/Payment";
 import ProductDetail from "Pages/Public/ProductDetail";
 import Register from "Pages/Public/Register";
@@ -30,6 +31,7 @@ const Routes = () => (
       <PublicRoute exact path={ROUTER.Register} component={Register} />
       <PublicRoute exact path={ROUTER.Login} component={Login} />
       <PublicRoute exact path={ROUTER.Payment} component={Payment} />
+      <PublicRoute component={NotFound} />
     </Switch>
   </Router>
 );

@@ -1,25 +1,42 @@
-import { useForm } from "react-hook-form";
-import InputField from "Components/Form-control/InputField";
-import Headline from "Components/PageHelper/Headline";
-import { Button, Col, Form, Row } from "Components/UI-Library";
-import React from "react";
+import { yupResolver } from '@hookform/resolvers/yup'
+import { useStoreState } from 'easy-peasy'
+import React from 'react'
+import { useForm } from 'react-hook-form'
+import * as yup from 'yup'
 
-import "./index.less";
+import InputField from 'Components/Form-control/InputField'
+import Headline from 'Components/PageHelper/Headline'
+import { Button, Col, Row } from 'Components/UI-Library'
+import './index.less'
+
 
 const Contact = () => {
-  const form = useForm({
+  const user = useStoreState((state) => state.auth.user)
+
+  const schema = yup.object().shape({
+    firstName: yup.string().required('Please type your first name.'),
+    lastName: yup.string().required('Please type your last name.'),
+    email: yup.string().required('Please type your email.').email("Please enter a valid email address."),
+    subject: yup.string(),
+    message: yup.string(),
+  })
+
+  const defaultValues = {
     defaultValues: {
-      firstName: "",
-      lastName: "",
-      email: "",
-      subject: "",
-      message: "",
+      firstName: user ? user.firstName : '',
+      lastName: user ? user.lastName : '',
+      email: user ? user.email : '',
+      subject: '',
+      message: '',
     },
-  });
+    resolver: yupResolver(schema),
+  }
+
+  const form = useForm(defaultValues)
 
   const handleSubmit = (value) => {
-    console.log(`value`, value);
-  };
+    console.log(`value`, value)
+  }
 
   return (
     <div>
@@ -35,8 +52,8 @@ const Contact = () => {
           </Col>
           <Col span={16} className="contact-col">
             <div className="title">Fill in Your Details</div>
-            <Form onSubmit={form.handleSubmit(handleSubmit)}>
-              <Row gutter={[48, 24]}>
+            <form onSubmit={form.handleSubmit(handleSubmit)}>
+              <Row gutter={[48, 6]}>
                 <Col span={10}>
                   <InputField
                     label="First Name"
@@ -62,11 +79,7 @@ const Contact = () => {
                   />
                 </Col>
                 <Col span={10}>
-                  <InputField
-                    label="Subject"
-                    name="subject"
-                    form={form}
-                  />
+                  <InputField label="Subject" name="subject" form={form} />
                 </Col>
                 <Col span={20}>
                   <InputField
@@ -77,15 +90,15 @@ const Contact = () => {
                   />
                 </Col>
                 <Col span={10}>
-                  <Button>Submit</Button>
+                  <Button htmlType="submit">Submit</Button>
                 </Col>
               </Row>
-            </Form>
+            </form>
           </Col>
         </Row>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Contact;
+export default Contact

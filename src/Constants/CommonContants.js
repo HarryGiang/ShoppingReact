@@ -152,4 +152,5 @@ export const URL = "http://localhost:3000";
 export const API = {
   PRODUCT: `${URL}/products`,
   SHOP: `${URL}/shop`,
+  USER: `${URL}/userProfile`,
 };

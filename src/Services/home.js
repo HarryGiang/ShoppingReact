@@ -10,3 +10,5 @@ export const getProductId = async (id) => {
   const response = await axios.get(`${API.PRODUCT}/${id}`);
   return response;
 };
+
+

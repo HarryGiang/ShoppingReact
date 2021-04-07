@@ -1,66 +1,91 @@
-import InputField from "Components/Form-control/InputField";
-import { Button, Checkbox, Col, Form, Row } from "Components/UI-Library";
-import { ROUTER } from "Constants/CommonContants";
-import React from "react";
-import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
-import "./index.less";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
+import { yupResolver } from '@hookform/resolvers/yup'
+import InputField from 'Components/Form-control/InputField'
+import {
+  Button,
+  Checkbox,
+  Col,
+
+  message,
+  Row
+} from 'Components/UI-Library'
+import { ROUTER } from 'Constants/CommonContants'
+import { useStoreActions, useStoreState } from 'easy-peasy'
+import React from 'react'
+import { useForm } from 'react-hook-form'
+import { Link, useHistory } from 'react-router-dom'
+import * as yup from 'yup'
+import './index.less'
+
 
 const Login = () => {
-  const schema = yup.object().shape({
-    email: yup.string().required('Please type your email.'),
-    password: yup.string().required('Please type your password.'),
-  });
+  const getLogin = useStoreActions((action) => action.auth.getLogin)
+  const user = useStoreState((state) => state.auth.user)
 
-  const form = useForm({
+  const schema = yup.object().shape({
+    email: yup
+      .string()
+      .required('Please enter your email.')
+      .email('Please enter a valid email address.'),
+    password: yup.string().required('Please enter your password.'),
+  })
+
+  const defaultValues = {
     defaultValues: {
-      email: "",
-      password: "",
+      email: user ? user.email : '',
+      password: '',
     },
-    resolvers: yupResolver(schema),
-  });
+    resolver: yupResolver(schema),
+  }
+
+  const form = useForm(defaultValues)
+  const history = useHistory()
 
   const handleSubmit = (value) => {
-    console.log("value :>> ", value);
-  };
+    getLogin({ value, fnCallback })
+  }
+
+  const fnCallback = (success) => {
+    if (success) {
+      message.success('Logged in successfully')
+      history.push(ROUTER.Home)
+    } else {
+      message.error('Login failed')
+    }
+  }
 
   return (
     <div className="login-wrapper">
       <Row>
         <Col span={8} className="form-wrapper">
           <div className="login">Log In</div>
-          <Form onSubmit={form.handleSubmit(handleSubmit)}>
-            <Form.Item>
-              <InputField name="email" label="Email" form={form} isRequired />
-            </Form.Item>
-            <Form.Item>
-              <InputField
-                name="password"
-                label="Password"
-                form={form}
-                isRequired
-              />
-            </Form.Item>
-            <Form.Item>
-              <Row justify="space-between">
-                <Col>
-                  <Checkbox>Remember me</Checkbox>
-                </Col>
-                <Col>
-                  <Link to="">Forgot password</Link>
-                </Col>
-              </Row>
-            </Form.Item>
-            <Form.Item>
-              <Button type="primary">Log In</Button>
-            </Form.Item>
-            <Form.Item>
-              Do you have an account?{" "}
-              <Link to={ROUTER.Register}>Register now</Link>
-            </Form.Item>
-          </Form>
+          <form onSubmit={form.handleSubmit(handleSubmit)}>
+            <InputField name="email" label="Email" form={form} isRequired />
+            <InputField
+              name="password"
+              label="Password"
+              type="password"
+              form={form}
+              isRequired
+            />
+            <Row justify="space-between">
+              <Col>
+                <Checkbox>Remember me</Checkbox>
+              </Col>
+              <Col>
+                <Link to="">Forgot password</Link>
+              </Col>
+            </Row>
+            <Button
+              type="primary"
+              htmlType="submit"
+              className="btn-login"
+              //  onClick={handleSubmit}
+            >
+              Log In
+            </Button>
+            Do you have an account?{' '}
+            <Link to={ROUTER.Register}>Register now</Link>
+          </form>
         </Col>
         <Col span={16} className="login-banner">
           <img
@@ -70,7 +95,7 @@ const Login = () => {
         </Col>
       </Row>
     </div>
-  );
-};
+  )
+}
 
-export default Login;
+export default Login
