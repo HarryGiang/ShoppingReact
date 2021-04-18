@@ -30,7 +30,7 @@ const FAQ = () => {
                 </p>
               </Panel>
               <Panel header="Can I insert pictures in my FAQ?" key="2">
-                <p>
+                <div>
                   Yes! To add a picture follow these simple steps:
                   <ol>
                     <li>Enter App Settings</li>
@@ -44,10 +44,10 @@ const FAQ = () => {
                       then add an image from your library
                     </li>
                   </ol>
-                </p>
+                </div>
               </Panel>
               <Panel header="Can I insert a video in my FAQ?" key="3">
-                <p>
+                <div>
                   Yes! To add a picture follow these simple steps:
                   <ol>
                     <li>Enter App Settings</li>
@@ -65,7 +65,7 @@ const FAQ = () => {
                       text box
                     </li>
                   </ol>
-                </p>
+                </div>
               </Panel>
             </Collapse>
           </Col>

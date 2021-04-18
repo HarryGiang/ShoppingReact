@@ -13,7 +13,7 @@ import './index.less'
 
 const Cart = () => {
   const count = useStoreState((state) => state.cart.count)
-  const cart = useStoreState((state) => state.cart.cart)
+  const subTotal = useStoreState((state) => state.cart.subTotal)
   const [visible, setVisible] = useState(false)
 
   const showCart = () => {
@@ -42,12 +42,7 @@ const Cart = () => {
               Total:
             </Col>
             <Col span={12} className="price-total">
-              $
-              {cart.length
-                ? cart
-                    .reduce((acc, cur) => acc + cur.price * cur.quantity, 0)
-                    .toFixed(2)
-                : 0}
+              ${subTotal}
             </Col>
             <Col span={24}>
               <Link to={ROUTER.Checkout}>
@@ -57,7 +52,7 @@ const Cart = () => {
           </Row>
         }
       >
-        <ProductCart />
+        <ProductCart total={false} />
       </Drawer>
     </div>
   )

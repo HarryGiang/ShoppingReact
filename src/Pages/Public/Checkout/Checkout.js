@@ -10,7 +10,8 @@ import './index.less'
 
 const Checkout = () => {
   const history = useHistory()
-  const cart = useStoreState((state) => state.cart.cart)
+  const subTotal = useStoreState((state) => state.cart.subTotal)
+  const total = useStoreState((state) => state.cart.total)
 
   const handleCheckout = () => {
     history.push(ROUTER.Payment)
@@ -28,14 +29,7 @@ const Checkout = () => {
             <div className="sub-title">Order Summary</div>
             <Row justify="space-between">
               <Col>Subtotal</Col>
-              <Col>
-                $
-                {cart
-                  ? cart
-                      .reduce((acc, cur) => acc + cur.price * cur.quantity, 0)
-                      .toFixed(2)
-                  : 0}
-              </Col>
+              <Col>${subTotal}</Col>
             </Row>
             <Row justify="space-between" className="shipping">
               <Col>Voucher</Col>
@@ -43,14 +37,7 @@ const Checkout = () => {
             </Row>
             <Row align="middle" justify="space-between" className="total">
               <Col className="sub-total">Total</Col>
-              <Col className="price-total">
-                $
-                {cart
-                  ? cart
-                      .reduce((acc, cur) => acc + cur.price * cur.quantity, 0)
-                      .toFixed(2)
-                  : 0}
-              </Col>
+              <Col className="price-total">${total}</Col>
             </Row>
             <Button type="primary" onClick={handleCheckout}>
               <UnlockOutlined />

@@ -91,8 +91,8 @@ const ProductDetail = () => {
             <Col span={14}>
               <div className="product-image">
                 <Carousel infiniteLoop="true">
-                  {get(productDetail, 'image', []).map((item) => (
-                    <div>
+                  {get(productDetail, 'image', []).map((item, index) => (
+                    <div key={index.toString()} >
                       <img src={item} alt="" />
                     </div>
                   ))}

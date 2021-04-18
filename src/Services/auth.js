@@ -6,6 +6,11 @@ export const postRegister = async (data) => {
   return response
 }
 
+export const updateUser = async (data, id) => {
+  const response = await Axios.put(`${API.USER}/${id}`, data)
+  return response
+}
+
 export const getLogin = async (data) => {
   const response = await Axios.get(API.USER, {
     params: data,

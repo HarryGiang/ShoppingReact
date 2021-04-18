@@ -7,7 +7,7 @@ const { TextArea } = Input
 const { Password } = Input
 
 const InputField = ({ name, label, form, isRequired, type, textArea }) => {
-  const { errors } = form
+  const { errors , } = form
   const hasError = errors[name]
 
   return (

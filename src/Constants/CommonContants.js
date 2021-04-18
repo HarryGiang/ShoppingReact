@@ -30,6 +30,8 @@ export const ROUTER = {
   Contact: "/contact",
   Checkout: "/checkout",
   Payment: "/payment",
+  Profile: "/profile",
+  OrderSuccess: "/orderSuccess",
 };
 export const tagItem = [
   {
@@ -153,4 +155,5 @@ export const API = {
   PRODUCT: `${URL}/products`,
   SHOP: `${URL}/shop`,
   USER: `${URL}/userProfile`,
+  ORDER: `${URL}/order`,
 };

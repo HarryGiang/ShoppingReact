@@ -1,17 +1,20 @@
-import Intro2 from 'Assets/Icons/ic-3-layers.svg'
-import Intro1 from 'Assets/Icons/ic-fits-all.svg'
-import Intro3 from 'Assets/Icons/ic-washable.svg'
-import Artical from 'Assets/Images/09.jpg'
+import React, { useEffect } from 'react'
+import { useStoreActions, useStoreState } from 'easy-peasy'
+import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
+
 import { Banner } from 'Components/PageHelper/Banner'
 import { IntroItem } from 'Components/PageHelper/IntroItem'
 import { ProductItem } from 'Components/PageHelper/ProductItem'
 import { Button, Carousel, Col, Row, Spin } from 'Components/UI-Library'
 import { LoadingOutlined } from 'Components/UI-Library/Icons'
 import { ROUTER } from 'Constants/CommonContants'
-import { useStoreActions, useStoreState } from 'easy-peasy'
-import React, { useEffect } from 'react'
-import { useTranslation } from 'react-i18next'
-import { Link } from 'react-router-dom'
+
+import Intro2 from 'Assets/Icons/ic-3-layers.svg'
+import Intro1 from 'Assets/Icons/ic-fits-all.svg'
+import Intro3 from 'Assets/Icons/ic-washable.svg'
+import Artical from 'Assets/Images/09.jpg'
+
 import './Home.less'
 
 const Home = () => {
@@ -20,9 +23,11 @@ const Home = () => {
   const products = useStoreState((state) => state.home.products)
   const loading = useStoreState((state) => state.home.loading)
   const getProduct = useStoreActions((actions) => actions.home.getProduct)
+
   useEffect(() => {
     getProduct()
   }, [getProduct])
+
   return (
     <Spin indicator={<LoadingOutlined />} spinning={loading}>
       <div className="main">
@@ -41,13 +46,14 @@ const Home = () => {
           <div className="title">{t('Most Popular')}</div>
           <div className="most-product">
             <Row gutter={[40, 40]}>
-              {products.map((item) => {
+              {products.map((item, index) => {
                 return (
-                  <Col span={6}>
+                  // eslint-disable-next-line react/no-array-index-key
+                  <Col span={6} key={index}>
                     <ProductItem
                       name={item.name}
                       price={item.price}
-                      image={item.image}
+                      image={item.image[0]}
                       id={item.id}
                     />
                   </Col>
@@ -111,19 +117,17 @@ const Home = () => {
           <div className="bg-light-pink">
             <div className="tag">
               <Row gutter={[80, 80]}>
-                {tags.map((item, index) => {
-                  return (
-                    <Col span={6} key={index.toString()}>
-                      <div className="tag-item">
-                        <Link to="/">
-                          <img src={item.image} alt="" />
-                          <div className="box-overlay" />
-                          <div className="tag-content">{item.tag}</div>
-                        </Link>
-                      </div>
-                    </Col>
-                  )
-                })}
+                {tags.map((item, index) => (
+                  <Col span={6} key={index.toString()}>
+                    <div className="tag-item">
+                      <Link to="/">
+                        <img src={item.image} alt="" />
+                        <div className="box-overlay" />
+                        <div className="tag-content">{item.tag}</div>
+                      </Link>
+                    </div>
+                  </Col>
+                ))}
               </Row>
             </div>
           </div>

@@ -9,19 +9,23 @@ import { LoadingOutlined } from 'Components/UI-Library/Icons'
 const Shop = () => {
   const productShop = useStoreState((state) => state.shop.productShop)
   const loading = useStoreState((state) => state.shop.loading)
-  const getProductShop = useStoreActions(
-    (actions) => actions.shop.getProductShop
+  const loadData = useStoreActions(
+    (actions) => actions.shop.loadData
   )
+  const setPage = useStoreActions((actions) => actions.shop.setPage)
   const setProductDetail = useStoreActions(
     (actions) => actions.products.setProductDetail
   )
 
   useEffect(() => {
-    getProductShop()
-  }, [getProductShop])
+    loadData()
+  }, [loadData])
 
   const onHandleProductDetail = (data) => {
     setProductDetail(data)
+  }
+  const onHandleChange = (value) => {
+    setPage(value)
   }
 
   return (
@@ -49,7 +53,7 @@ const Shop = () => {
           </Row>
           <Row justify="center" className="pagination">
             <Col>
-              <Pagination defaultCurren={1} total={50} />
+              <Pagination total={12} pageSize={8} onChange={onHandleChange} />
             </Col>
           </Row>
         </div>

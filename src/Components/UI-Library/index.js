@@ -1,4 +1,5 @@
 import {
+  Tabs,
   InputNumber,
   Form,
   Checkbox,
@@ -42,6 +43,7 @@ import {
 } from "antd";
 
 export {
+  Tabs,
   InputNumber,
   Form,
   Checkbox,

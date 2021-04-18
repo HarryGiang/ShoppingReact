@@ -1,18 +1,33 @@
 import { yupResolver } from '@hookform/resolvers/yup'
 import InputField from 'Components/Form-control/InputField'
-import { Button, Col, Radio, Row } from 'Components/UI-Library'
+import { Button, Col, message, Radio, Row } from 'Components/UI-Library'
 import { DollarCircleOutlined } from 'Components/UI-Library/Icons'
-import { useStoreState } from 'easy-peasy'
-import React, { useState } from 'react'
+import { useStoreActions, useStoreState } from 'easy-peasy'
+import isEmpty from 'lodash/isEmpty'
+import { useHistory } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
 import './index.less'
+import { ROUTER } from 'Constants/CommonContants'
+import ProductCart from 'Components/PageHelper/ProductCart'
 
 const Payment = () => {
-  const [payment, setPayment] = useState(null)
-  const cart = useStoreState((state) => state.cart.cart)
+  const history = useHistory()
   const user = useStoreState((state) => state.auth.user)
 
+  useEffect(() => {
+    if (isEmpty(user)) {
+      history.push(ROUTER.Login)
+    }
+  }, [history, user])
+  const [payment, setPayment] = useState(null)
+  const subTotal = useStoreState((state) => state.cart.subTotal)
+  const total = useStoreState((state) => state.cart.total)
+  const defaultValuesStore = useStoreState((state) => state.auth.defaultValues)
+  // const user = useStoreState((state) => state.auth.user)
+  const checkoutCart = useStoreActions((action) => action.cart.checkoutCart)
+  console.log('defaultValuesStore', defaultValuesStore)
   const schema = yup.object().shape({
     firstName: yup.string().required('Please type your first name.'),
     lastName: yup.string().required('Please type your last name.'),
@@ -28,27 +43,32 @@ const Payment = () => {
     address: yup.string().required('Please type your address.'),
     message: yup.string(),
   })
-  const defaultValues = {
-    defaultValues: {
-      firstName: user ? user.firstName : '',
-      lastName: user ? user.lastName : '',
-      email: user ? user.email : '',
-      phoneNumber: user ? user.phoneNumber :'',
-      address: user ? user.address : '',
-      message: '',
-    },
+  // const defaultValues = {
+  //   defaultValues:  defaultValuesStore,
+  //   resolver: yupResolver(schema),
+  // }
+  const form = useForm({
     resolver: yupResolver(schema),
-  }
-  const form = useForm(defaultValues)
+    defaultValues: defaultValuesStore,
+  })
 
   const onHandleChange = (e) => {
     setPayment(e.target.value)
   }
-  const handleSubmit = (value) => {
-    console.log(`value`, value)
+  const handleSubmit = (reciver) => {
+    // console.log(`value`, value)
+    if (payment) {
+      checkoutCart({ reciver, payment, total, fnCallback })
+    } else message.error('Please choose method payment')
   }
-  const handlePayment = (value) => {
-    console.log(`value`, value)
+
+  const fnCallback = (success) => {
+    if (success) {
+      message.success('Order is successful')
+      history.push(ROUTER.OrderSuccess)
+    } else {
+      message.error('Failed')
+    }
   }
 
   return (
@@ -112,56 +132,33 @@ const Payment = () => {
             </Col>
             <Col span={8}>
               <div className="sub-title">Your Order</div>
+              <ProductCart total={false} removeIcon={false} />
               <Row justify="space-between">
                 <Col>Subtotal</Col>
-                <Col>
-                  $
-                  {cart
-                    ? cart
-                        .reduce((acc, cur) => acc + cur.price * cur.quantity, 0)
-                        .toFixed(2)
-                    : 0}
-                </Col>
+                <Col>${subTotal}</Col>
               </Row>
               <Row justify="space-between" className="shipping">
                 <Col>Shipping</Col>
-                <Col>
-                  $
-                  {cart &&
-                    cart.map((item) =>
-                      item.shipping ? item.shipping.toFixed(2) : 0
-                    )}
-                </Col>
+                <Col>$0</Col>
               </Row>
               <Row align="middle" justify="space-between" className="total">
                 <Col className="sub-total">Total</Col>
-                <Col className="price-total">
-                  $
-                  {cart
-                    ? cart
-                        .reduce(
-                          (acc, cur) =>
-                            acc + cur.price * cur.quantity + cur.shipping,
-                          0
-                        )
-                        .toFixed(2)
-                    : 0}
-                </Col>
+                <Col className="price-total">${total}</Col>
               </Row>
               <div className="payment-methods">
                 <Radio.Group onChange={onHandleChange} value={payment}>
                   <Row gutter={[12, 12]}>
                     <Col>
-                      <Radio value={1}>Payment via Momo</Radio>
+                      <Radio value="momo">Payment via Momo</Radio>
                     </Col>
                     <Col>
-                      <Radio value={2}>Payment on delivery</Radio>
+                      <Radio value="delivery">Payment on delivery</Radio>
                     </Col>
                   </Row>
                 </Radio.Group>
               </div>
 
-              <Button type="primary" htmlType="submit" onClick={handlePayment}>
+              <Button type="primary" htmlType="submit">
                 <DollarCircleOutlined />
                 Payment
               </Button>

@@ -1,25 +1,25 @@
 import { yupResolver } from '@hookform/resolvers/yup'
 import InputField from 'Components/Form-control/InputField'
-import {
-  Button,
-  Checkbox,
-  Col,
-
-  message,
-  Row
-} from 'Components/UI-Library'
+import { Button, Checkbox, Col, message, Row } from 'Components/UI-Library'
 import { ROUTER } from 'Constants/CommonContants'
 import { useStoreActions, useStoreState } from 'easy-peasy'
-import React from 'react'
+import isEmpty from 'lodash/isEmpty'
+import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { Link, useHistory } from 'react-router-dom'
 import * as yup from 'yup'
 import './index.less'
 
-
 const Login = () => {
+  const history = useHistory()
   const getLogin = useStoreActions((action) => action.auth.getLogin)
   const user = useStoreState((state) => state.auth.user)
+
+  useEffect(() => {
+    if (!isEmpty(user)) {
+      history.push(ROUTER.Home)
+    }
+  }, [history, user])
 
   const schema = yup.object().shape({
     email: yup
@@ -38,7 +38,6 @@ const Login = () => {
   }
 
   const form = useForm(defaultValues)
-  const history = useHistory()
 
   const handleSubmit = (value) => {
     getLogin({ value, fnCallback })

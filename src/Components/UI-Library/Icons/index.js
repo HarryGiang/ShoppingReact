@@ -1,4 +1,11 @@
 import {
+  StarOutlined,
+  SmileOutlined,
+  InboxOutlined,
+  WalletOutlined,
+  PullRequestOutlined,
+  EditOutlined,
+  HistoryOutlined,
   DollarCircleOutlined,
   UnlockOutlined,
   SettingOutlined,
@@ -59,6 +66,13 @@ import {
 } from "@ant-design/icons";
 
 export {
+  StarOutlined,
+  SmileOutlined,
+  InboxOutlined,
+  WalletOutlined,
+  PullRequestOutlined,
+  EditOutlined,
+  HistoryOutlined,
   DollarCircleOutlined,
   SettingOutlined,
   LogoutOutlined,

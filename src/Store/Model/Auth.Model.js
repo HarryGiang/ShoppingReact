@@ -1,5 +1,7 @@
-import { action, thunk } from 'easy-peasy'
-import { getLogin, postRegister } from 'Services/auth'
+import { action, computed, thunk } from 'easy-peasy'
+import _get from 'lodash/get'
+
+import { getLogin, postRegister, updateUser } from 'Services/auth'
 
 const auth = {
   loading: false,
@@ -7,9 +9,34 @@ const auth = {
   setLoading: action((state, payload) => {
     state.loading = payload
   }),
+  defaultValues: computed((state) => {
+    const firstName = _get(state, 'user.firstName', '')
+    const lastName = _get(state, 'user.lastName', '')
+    const email = _get(state, 'user.email', '')
+    const phoneNumber = _get(state, 'user.phoneNumber', '')
+    const address = _get(state, 'user.address', '')
+    const message = _get(state, 'user.message', '')
+    return { firstName, lastName, email, phoneNumber, address, message }
+  }),
 
   setUser: action((state, payload) => {
     state.user = payload
+    localStorage.setItem('user', JSON.stringify(payload))
+  }),
+  editUser: thunk(async (actions, { value, fnCallback }) => {
+    try {
+      await updateUser(value)
+      console.log('valueUser :>> ', value)
+      if (fnCallback) {
+        fnCallback(true)
+        actions.setLoading(false)
+      }
+      // actions.setUser = value
+    } catch (error) {
+      if (fnCallback) {
+        fnCallback(false)
+      }
+    }
   }),
   saveRegister: thunk(async (actions, { value, fnCallback }) => {
     actions.setLoading(true)
@@ -24,6 +51,14 @@ const auth = {
         fnCallback(false)
       }
     }
+  }),
+  getUser: thunk((actions) => {
+    const user = localStorage.getItem('user')
+    actions.setUser(JSON.parse(user))
+  }),
+  removeUser: thunk((actions) => {
+    actions.setUser({})
+    localStorage.clear()
   }),
   getLogin: thunk(async (actions, { value, fnCallback }) => {
     try {

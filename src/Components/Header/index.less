@@ -2,14 +2,6 @@
 
 @blue: #0a1fdb;
 
-.dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  display: none;
-  z-index: 1;
-}
-
 .header {
   color: @black;
   display: flex;
@@ -25,11 +17,6 @@
       .nav-item {
         margin-right: 30px;
         color: @black;
-        &:hover {
-          .dropdown-menu {
-            display: block;
-          }
-        }
       }
       .nav-item:hover {
         color: @blue;
@@ -57,7 +44,8 @@
     }
     .search {
       position: relative;
-      margin-right: @margin-lg;
+      margin-right: @margin-lg;  
+  
       .btn-search {
         width: auto;
         height: auto;
@@ -79,8 +67,15 @@
         }
         .ant-input-search {
           color: @white;
-        }
+        }  
+      
       }
+   
     }
   }
+  
+}
+.image-product-search{
+  width: 30px;
+  height: 30px;
 }
