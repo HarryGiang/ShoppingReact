@@ -1,16 +1,17 @@
+import React, { useEffect, useState } from 'react'
+import { useHistory } from 'react-router-dom'
+import { useStoreActions, useStoreState } from 'easy-peasy'
+import { useForm } from 'react-hook-form'
+import isEmpty from 'lodash/isEmpty'
 import { yupResolver } from '@hookform/resolvers/yup'
+
 import InputField from 'Components/Form-control/InputField'
 import { Button, Col, message, Radio, Row } from 'Components/UI-Library'
 import { DollarCircleOutlined } from 'Components/UI-Library/Icons'
-import { useStoreActions, useStoreState } from 'easy-peasy'
-import isEmpty from 'lodash/isEmpty'
-import { useHistory } from 'react-router-dom'
-import React, { useEffect, useState } from 'react'
-import { useForm } from 'react-hook-form'
-import * as yup from 'yup'
-import './index.less'
 import { ROUTER } from 'Constants/CommonContants'
 import ProductCart from 'Components/PageHelper/ProductCart'
+import schema from './Payment.Yup'
+import './index.less'
 
 const Payment = () => {
   const history = useHistory()
@@ -27,22 +28,7 @@ const Payment = () => {
   const defaultValuesStore = useStoreState((state) => state.auth.defaultValues)
   // const user = useStoreState((state) => state.auth.user)
   const checkoutCart = useStoreActions((action) => action.cart.checkoutCart)
-  console.log('defaultValuesStore', defaultValuesStore)
-  const schema = yup.object().shape({
-    firstName: yup.string().required('Please type your first name.'),
-    lastName: yup.string().required('Please type your last name.'),
-    email: yup
-      .string()
-      .required('Please type your email.')
-      .email('Please enter a valid email address.'),
-    phoneNumber: yup
-      .number()
-      .required('Please type your phone number.')
-      .typeError('Your phone number is not valid')
-      .min(10, 'Your number phone is not valid'),
-    address: yup.string().required('Please type your address.'),
-    message: yup.string(),
-  })
+
   // const defaultValues = {
   //   defaultValues:  defaultValuesStore,
   //   resolver: yupResolver(schema),

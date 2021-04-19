@@ -1,3 +1,9 @@
+import React, { useState } from 'react'
+import { useStoreActions, useStoreState } from 'easy-peasy'
+import isEmpty from 'lodash/isEmpty'
+import { useTranslation } from 'react-i18next'
+import { Link, NavLink, useHistory } from 'react-router-dom'
+
 import Cart from 'Components/Cart'
 import {
   Avatar,
@@ -15,11 +21,7 @@ import {
   UserOutlined,
 } from 'Components/UI-Library/Icons'
 import { ROUTER } from 'Constants/CommonContants'
-import { useStoreActions, useStoreState } from 'easy-peasy'
-import isEmpty from 'lodash/isEmpty'
-import React, { useEffect, useState } from 'react'
-import { useTranslation } from 'react-i18next'
-import { Link, NavLink, useHistory } from 'react-router-dom'
+
 import './index.less'
 
 const { Option } = Select
@@ -34,11 +36,7 @@ const Header = () => {
   const getProductSearch = useStoreActions(
     (actions) => actions.shop.getProductSearch
   )
-  const getUser = useStoreActions((actions) => actions.auth.getUser)
   const removeUser = useStoreActions((actions) => actions.auth.removeUser)
-  useEffect(() => {
-    getUser()
-  }, [getUser])
 
   const handleOpenSearch = () => {
     setOpenSearch(!openSearch)

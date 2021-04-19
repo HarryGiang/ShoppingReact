@@ -1,3 +1,5 @@
-import Home from "./Public/Home";
+import { lazy } from 'react'
 
-export { Home };
+const Home = lazy(() => import('./Public/Home'))
+
+export { Home }

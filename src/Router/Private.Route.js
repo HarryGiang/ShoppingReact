@@ -1,7 +1,7 @@
-import React from "react";
-import { Route } from "react-router-dom";
+import React from 'react'
+import { Route } from 'react-router-dom'
 
-import { PrivateLayout } from "Components";
+import { PrivateLayout } from 'Components'
 
 const PublicRoute = ({ component: Component, ...rest }) => {
   return (
@@ -13,6 +13,6 @@ const PublicRoute = ({ component: Component, ...rest }) => {
         </PrivateLayout>
       )}
     />
-  );
-};
-export default PublicRoute;
+  )
+}
+export default PublicRoute

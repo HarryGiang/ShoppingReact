@@ -4,7 +4,7 @@ import _get from 'lodash/get'
 import { getLogin, postRegister, updateUser } from 'Services/auth'
 
 const auth = {
-  loading: false,
+  loading: true,
   user: {},
   setLoading: action((state, payload) => {
     state.loading = payload
@@ -20,8 +20,10 @@ const auth = {
   }),
 
   setUser: action((state, payload) => {
+    console.log('payload', payload)
     state.user = payload
     localStorage.setItem('user', JSON.stringify(payload))
+    state.loading = false
   }),
   editUser: thunk(async (actions, { value, fnCallback }) => {
     try {
@@ -53,8 +55,14 @@ const auth = {
     }
   }),
   getUser: thunk((actions) => {
-    const user = localStorage.getItem('user')
-    actions.setUser(JSON.parse(user))
+    actions.setLoading(true)
+    try {
+      const user = localStorage.getItem('user')
+      console.log('user', user)
+      actions.setUser(JSON.parse(user))
+    } catch (error) {
+      actions.setUser({})
+    }
   }),
   removeUser: thunk((actions) => {
     actions.setUser({})

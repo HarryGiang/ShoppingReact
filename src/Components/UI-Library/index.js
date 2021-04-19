@@ -40,7 +40,7 @@ import {
   Progress,
   Drawer,
   Radio,
-} from "antd";
+} from 'antd'
 
 export {
   Tabs,
@@ -84,4 +84,4 @@ export {
   Progress,
   Drawer,
   Radio,
-};
+}
