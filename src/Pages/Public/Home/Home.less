@@ -1,88 +1,37 @@
-@import "~antd/lib/style/themes/default.less";
+@import '~antd/lib/style/themes/default.less';
 @blue: #0a1fdb;
 @light_pink: rgb(253 248 236);
 @pink: rgb(254 156 122);
-
-.text-center {
-  text-align: center;
-}
-.title {
-  font-size: 28px;
-  color: @blue;
-  text-align: center;
-  margin: 60px 0;
-}
-.most-product {
-  margin-bottom: 20px;
-  display: flex;
-}
-.bg-light-pink {
-  background-color: @light_pink;
-}
-.bg-pink {
-  background-color: @pink;
-}
-.col-left {
-  height: 680px;
-  background-color: rgb(217 236 255);
-  color: @blue;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  .col-left-content {
-    width: 50%;
-    margin: 0 auto;
-    font-size: 20px;
+.main {
+  background-color: @white;
+  .text-center {
+    text-align: center;
   }
-}
-.col-right {
-  height: 680px;
-  img {
-    width: 100%;
-    height: 100%;
+  .title {
+    font-size: 28px;
+    color: @blue;
+    text-align: center;
+    margin: 60px 0;
   }
-}
-.tag {
-  padding: 100px;
-  .tag-item {
-    position: relative;
-    img {
-      width: 100%;
-      height: 100%;
+  .most-product {
+    margin-bottom: 20px;
+    display: flex;
+  }
+  .btn.ant-btn {
+    padding: 0 40px;
+    width: auto;
+    &:hover {
+      background-color: @blue;
+      color: white;
     }
   }
 }
 
-.box-overlay,
-.tag-content {
-  display: none;
-}
-.tag-item:hover {
-  .box-overlay {
-    background-color: white;
-    opacity: 0.5;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: block;
-    transition: 0.2s ease-out;
-  }
-  .tag-content {
-    display: block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: @blue;
-  }
-}
-.btn.ant-btn {
-  padding: 0 40px;
-  width: auto;
-  &:hover {
-    background-color: @blue;
-    color: white;
+// Tablet
+@media only screen and (max-width: 992px) {
+  .main {
+    .title {
+      margin: 40px 0;
+    }
   }
 }

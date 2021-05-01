@@ -9,73 +9,20 @@
   align-items: center;
   background-color: @white;
   height: 89px;
-
-  .nav-menu {
-    display: flex;
-    .menu-item {
-      position: relative;
-      .nav-item {
-        margin-right: 30px;
-        color: @black;
-      }
-      .nav-item:hover {
-        color: @blue;
-      }
-      .nav-item.active {
-        color: @blue;
-      }
-    }
+  .menu-mobile, .cart-mobile {
+    display: none;
   }
-  .logo {
-    letter-spacing: 8px;
-    font-size: 24px;
-    color: @black;
-  }
-  .user-cart {
-    display: flex;
-    align-items: center;
-    .login {
-      display: flex;
-      align-items: center;
-      margin-right: 25px;
-      .avatar {
-        margin-right: 10px;
-      }
-    }
-    .search {
-      position: relative;
-      margin-right: @margin-lg;  
-  
-      .btn-search {
-        width: auto;
-        height: auto;
-        border: none;
-        color: @black;
-        .search-icon {
-          font-size: 20px;
-        }
-      }
-      .input-search {
-        position: absolute;
-        top: 100%;
-        right: 100%;
-        width: 200px;
-        .ant-btn {
-          height: 31.6px;
-          padding: 3px 5px;
-          border: 1px solid #d9d9d9;
-        }
-        .ant-input-search {
-          color: @white;
-        }  
-      
-      }
-   
-    }
-  }
-  
 }
-.image-product-search{
-  width: 30px;
-  height: 30px;
+
+// tablet
+@media only screen and (max-width: 992px) {
+  .header {
+    height: 70px;
+    .hidden {
+      display: none;
+    }
+    .menu-mobile, .cart-mobile {
+      display: block;
+    }
+  }
 }

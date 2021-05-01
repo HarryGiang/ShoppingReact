@@ -2,7 +2,7 @@ import React from 'react'
 import { useStoreActions } from 'easy-peasy'
 
 import { Row, Col, Pagination } from 'Components/UI-Library'
-import './ShopList.Component'
+import './ShopPagination.Style.less'
 
 const ShopPagination = () => {
   const setPage = useStoreActions((actions) => actions.shop.setPage)

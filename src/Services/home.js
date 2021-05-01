@@ -1,4 +1,4 @@
-import { API } from "Constants/CommonContants";
+import { API } from "Constants/CommonConstants";
 import axios from "axios";
 
 export const getProducts = async () => {

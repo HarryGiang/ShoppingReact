@@ -1,4 +1,4 @@
-@import "~antd/lib/style/themes/default.less";
+@import '~antd/lib/style/themes/default.less';
 @blue: #0a1fdb;
 .cart-wrapper {
   .shopping-cart {
@@ -6,8 +6,11 @@
     color: @black;
     position: relative;
     display: inline-block;
+    padding: 0;
     &:hover {
       border: none;
+      background-color: transparent;
+      color: @black;
     }
     .cart-icon {
       font-size: 24px;
@@ -29,5 +32,9 @@
   .price-total {
     text-align: right;
     font-size: 26px;
+  }
+  .btn-view-cart{
+    width: 100%;
+    height: 44px;
   }
 }

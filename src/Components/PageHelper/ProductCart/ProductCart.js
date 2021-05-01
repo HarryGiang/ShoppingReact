@@ -1,6 +1,6 @@
 import { Button, Col, InputNumber, Row } from 'Components/UI-Library'
 import { CloseOutlined } from 'Components/UI-Library/Icons'
-import { ROUTER } from 'Constants/CommonContants'
+import { ROUTER } from 'Constants/CommonConstants'
 import { useStoreActions, useStoreState } from 'easy-peasy'
 import React from 'react'
 import { Link } from 'react-router-dom'

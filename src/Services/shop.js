@@ -1,5 +1,5 @@
 import axios from "axios";
-import { API } from "Constants/CommonContants";
+import { API } from "Constants/CommonConstants";
 
 export const getShop = async (page, search) => {
   const response = await axios.get(`${API.SHOP}?q=${search}&_page=${page}&_limit=8`);

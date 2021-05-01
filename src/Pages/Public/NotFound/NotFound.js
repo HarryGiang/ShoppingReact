@@ -1,5 +1,5 @@
 import { Button, Col, Row } from 'Components/UI-Library'
-import { ROUTER } from 'Constants/CommonContants'
+import { ROUTER } from 'Constants/CommonConstants'
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 import './index.less'
@@ -18,8 +18,8 @@ const NotFound = () => {
             alt=""
           />
         </Col>
-        <Col span={6} className="btn-go-home">
-          <Button type="primary" onClick={handleGoHome}>
+        <Col span={6}>
+          <Button type="primary" className="btn-back-home" onClick={handleGoHome}>
             GO BACK HOME
           </Button>
         </Col>

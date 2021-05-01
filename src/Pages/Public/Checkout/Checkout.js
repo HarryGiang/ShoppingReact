@@ -1,7 +1,7 @@
 import ProductCart from 'Components/PageHelper/ProductCart'
 import { Button, Col, Row } from 'Components/UI-Library'
 import { UnlockOutlined } from 'Components/UI-Library/Icons'
-import { ROUTER } from 'Constants/CommonContants'
+import { ROUTER } from 'Constants/CommonConstants'
 import { useStoreState } from 'easy-peasy'
 import React from 'react'
 import { useHistory } from 'react-router-dom'
@@ -19,13 +19,13 @@ const Checkout = () => {
 
   return (
     <Row className="checkout-wrapper">
-      <Col span={16} offset={4}>
+      <Col xs={24} lg={16}>
         <Row gutter={60}>
-          <Col span={16}>
+          <Col xs={24} md={16}>
             <div className="sub-title">My Cart</div>
             <ProductCart />
           </Col>
-          <Col span={8}>
+          <Col xs={24} md={8}>
             <div className="sub-title">Order Summary</div>
             <Row justify="space-between">
               <Col>Subtotal</Col>
@@ -39,7 +39,7 @@ const Checkout = () => {
               <Col className="sub-total">Total</Col>
               <Col className="price-total">${total}</Col>
             </Row>
-            <Button type="primary" onClick={handleCheckout}>
+            <Button type="primary" className="btn-checkout" onClick={handleCheckout}>
               <UnlockOutlined />
               Checkout
             </Button>

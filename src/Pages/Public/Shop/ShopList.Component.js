@@ -19,7 +19,9 @@ const ShopList = () => {
         {productShop.map((item) => {
           return (
             <Col
-              span={6}
+              xs={12}
+              md={8}
+              lg={6}
               key={item.id}
               onClick={() => onHandleProductDetail(item)}
             >

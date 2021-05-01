@@ -1,4 +1,4 @@
-import { ROUTER } from "Constants/CommonContants";
+import { ROUTER } from "Constants/CommonConstants";
 import React from "react";
 import { Link } from "react-router-dom";
 import "./index.less";
@@ -15,7 +15,7 @@ export const ProductItem = ({ name, price, image, tag, id }) => {
           </div>
           <div className="product-content">
             <div className="product-name">{name}</div>
-            <div className="product-price">${price.toFixed(2)}</div>
+            <div className="product-price">${price?.toFixed(2)}</div>
           </div>
         </div>
       </Link>

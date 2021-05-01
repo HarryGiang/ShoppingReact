@@ -1,5 +1,5 @@
 import Axios from 'axios'
-import { API } from 'Constants/CommonContants'
+import { API } from 'Constants/CommonConstants'
 
 export const postOrder = async (data) => {
   const response = await Axios.post(API.ORDER, data)

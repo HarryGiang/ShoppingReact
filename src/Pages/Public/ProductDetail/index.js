@@ -1,3 +1,3 @@
-import ProductDetail from './ProductDetail'
+import ProductDetail from './ProductDetail.Container'
 
 export default ProductDetail

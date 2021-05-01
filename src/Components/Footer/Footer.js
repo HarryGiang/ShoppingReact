@@ -6,7 +6,7 @@ import './index.less'
 import FacebookIcon from 'Assets/Images/ic-facebook.png'
 import InstagramIcon from 'Assets/Images/ic-instagram.png'
 import PinterestIcon from 'Assets/Images/ic-pinterest.png'
-import { ROUTER } from 'Constants/CommonContants'
+import { ROUTER } from 'Constants/CommonConstants'
 import { Col, Row } from 'Components/UI-Library'
 
 const Footer = () => {
@@ -14,14 +14,14 @@ const Footer = () => {
   return (
     <div className="footer-wrapper">
       <Row>
-        <Col span={6}>
+        <Col xs={12} md={6}>
           <div className="footer-item">
             <Link to={ROUTER.Home} className="logo">
               VISAGE
             </Link>
           </div>
         </Col>
-        <Col span={6}>
+        <Col xs={12} md={6}>
           <div className="footer-item">
             <div className="footer-content">
               <div className="title">{t('shop')}</div>
@@ -43,7 +43,7 @@ const Footer = () => {
             </div>
           </div>
         </Col>
-        <Col span={6}>
+        <Col xs={12} md={6}>
           <div className="footer-item">
             <div className="footer-content">
               <div className="title">{t('Policy')}</div>
@@ -65,7 +65,7 @@ const Footer = () => {
             </div>
           </div>
         </Col>
-        <Col span={6}>
+        <Col xs={12} md={6}>
           <div className="footer-item">
             <div className="footer-content">
               <div className="title">{t('Contact Us')}</div>

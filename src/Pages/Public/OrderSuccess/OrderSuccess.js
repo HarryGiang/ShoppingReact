@@ -1,6 +1,6 @@
 import { Button, Col, Row } from 'Components/UI-Library'
 import { CheckOutlined } from 'Components/UI-Library/Icons'
-import { ROUTER } from 'Constants/CommonContants'
+import { ROUTER } from 'Constants/CommonConstants'
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 import './index.less'

@@ -6,6 +6,7 @@ import useShopHook from './Shop.Hook'
 import Loading from './Loading.Component'
 
 import './index.less'
+import ShopPagination from './ShopPagination.Component'
 
 const Shop = () => {
   const { loading } = useShopHook()
@@ -15,6 +16,7 @@ const Shop = () => {
       <Headline label="Shop All" />
       {loading && <Loading />}
       {!loading && <ShopList />}
+      <ShopPagination />
     </div>
   )
 }

@@ -1,18 +1,14 @@
-import React from "react";
-import { Layout } from "Components/UI-Library";
+import { Layout } from 'Components/UI-Library'
+import Dashboard from './Dashboard'
 
-import "./index.less";
-import HeaderLayout from "Components/Header";
-
-const { Content } = Layout;
+const { Content } = Layout
 
 const PrivateLayout = (props) => {
   return (
-    <Layout className="">
-      <HeaderLayout />
-      <Content>{props.children}</Content>
-    </Layout>
-  );
-};
+    <Dashboard className="pp_layout">
+      <Content className="pp_container">{props.children}</Content>
+    </Dashboard>
+  )
+}
 
-export default PrivateLayout;
+export default PrivateLayout

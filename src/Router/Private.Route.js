@@ -1,9 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Route } from 'react-router-dom'
+import { useStoreActions, useStoreState } from 'easy-peasy'
 
-import { PrivateLayout } from 'Components'
+import { AppLoading, PrivateLayout } from 'Components'
 
-const PublicRoute = ({ component: Component, ...rest }) => {
+const PrivateRoute = ({ component: Component, ...rest }) => {
+  const loading = useStoreState((state) => state.auth.loading)
+  const getUser = useStoreActions((actions) => actions.auth.getUser)
+
+  useEffect(() => {
+    getUser()
+  }, [getUser])
+
+  if (loading) return <AppLoading title="Loading Page" />
   return (
     <Route
       {...rest}
@@ -15,4 +24,4 @@ const PublicRoute = ({ component: Component, ...rest }) => {
     />
   )
 }
-export default PublicRoute
+export default PrivateRoute

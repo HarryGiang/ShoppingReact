@@ -1,4 +1,4 @@
-import { tagItem } from 'Constants/CommonContants'
+import { tagItem } from 'Constants/CommonConstants'
 import { action, thunk } from 'easy-peasy'
 import { getProducts } from 'Services/home'
 

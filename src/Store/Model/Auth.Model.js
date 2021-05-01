@@ -20,7 +20,6 @@ const auth = {
   }),
 
   setUser: action((state, payload) => {
-    console.log('payload', payload)
     state.user = payload
     localStorage.setItem('user', JSON.stringify(payload))
     state.loading = false
@@ -28,7 +27,6 @@ const auth = {
   editUser: thunk(async (actions, { value, fnCallback }) => {
     try {
       await updateUser(value)
-      console.log('valueUser :>> ', value)
       if (fnCallback) {
         fnCallback(true)
         actions.setLoading(false)
@@ -58,7 +56,6 @@ const auth = {
     actions.setLoading(true)
     try {
       const user = localStorage.getItem('user')
-      console.log('user', user)
       actions.setUser(JSON.parse(user))
     } catch (error) {
       actions.setUser({})
@@ -79,7 +76,6 @@ const auth = {
       } else {
         fnCallback(false)
       }
-      console.log('response :>> ', response)
     } catch (error) {
       if (fnCallback) {
         fnCallback(false)

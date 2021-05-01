@@ -1,4 +1,8 @@
 import {
+  MenuOutlined,
+  CopyOutlined,
+  PushpinOutlined,
+  MenuUnfoldOutlined,
   StarOutlined,
   SmileOutlined,
   InboxOutlined,
@@ -63,9 +67,13 @@ import {
   MessageOutlined,
   ExclamationCircleOutlined,
   DownOutlined,
-} from "@ant-design/icons";
+} from '@ant-design/icons'
 
 export {
+  MenuOutlined,
+  CopyOutlined,
+  PushpinOutlined,
+  MenuUnfoldOutlined,
   StarOutlined,
   SmileOutlined,
   InboxOutlined,
@@ -130,4 +138,4 @@ export {
   MessageOutlined,
   ExclamationCircleOutlined,
   DownOutlined,
-};
+}

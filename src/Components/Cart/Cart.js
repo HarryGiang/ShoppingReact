@@ -8,7 +8,7 @@ import {
   CloseOutlined,
   ShoppingCartOutlined,
 } from 'Components/UI-Library/Icons'
-import { ROUTER } from 'Constants/CommonContants'
+import { ROUTER } from 'Constants/CommonConstants'
 import './index.less'
 
 const Cart = () => {
@@ -31,7 +31,7 @@ const Cart = () => {
       </Button>
       <Drawer
         closeIcon={<CloseOutlined />}
-        width={350}
+        width={320}
         title="My Cart"
         placement="right"
         onClose={onClose}
@@ -46,7 +46,7 @@ const Cart = () => {
             </Col>
             <Col span={24}>
               <Link to={ROUTER.Checkout}>
-                <Button onClick={onClose}>View Cart</Button>
+                <Button onClick={onClose} className="btn-view-cart">View Cart</Button>
               </Link>
             </Col>
           </Row>
