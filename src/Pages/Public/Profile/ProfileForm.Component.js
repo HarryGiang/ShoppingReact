@@ -34,8 +34,8 @@ const ProfileForm = () => {
   }
   return (
     <form onSubmit={form.handleSubmit(handleSubmit)}>
-      <Row gutter={[48, 6]}>
-        <Col span={12}>
+      <Row gutter={[{ lg: 48 }, { lg: 6 }]}>
+        <Col xs={24} lg={12}>
           <InputField
             label="First Name"
             name="firstName"
@@ -43,7 +43,7 @@ const ProfileForm = () => {
             isRequired
           />
         </Col>
-        <Col span={12}>
+        <Col xs={24} lg={12}>
           <InputField
             label="Last Name"
             name="lastName"
@@ -51,10 +51,10 @@ const ProfileForm = () => {
             isRequired
           />
         </Col>
-        <Col span={12}>
+        <Col xs={24} lg={12}>
           <InputField label="Email" name="email" form={form} isRequired />
         </Col>
-        <Col span={12}>
+        <Col xs={24} lg={12}>
           <InputField
             label="Phone Number"
             name="phoneNumber"

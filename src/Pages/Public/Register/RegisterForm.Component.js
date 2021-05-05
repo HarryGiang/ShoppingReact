@@ -41,8 +41,8 @@ const RegisterForm = () => {
     }
   }
   return (
-    <Row>
-      <Col span={8} offset={8} className="form-wrapper">
+    <Row justify="center">
+      <Col xs={24} sm={16} lg={14} xl={8} className="form-wrapper">
         <div className="sign-up">Sign Up</div>
         <form onSubmit={form.handleSubmit(handleSubmit)}>
           <InputField

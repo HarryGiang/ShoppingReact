@@ -1,4 +1,5 @@
 import {
+  Table,
   Tabs,
   InputNumber,
   Form,
@@ -43,6 +44,7 @@ import {
 } from 'antd'
 
 export {
+  Table,
   Tabs,
   InputNumber,
   Form,

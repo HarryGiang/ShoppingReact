@@ -14,7 +14,12 @@ export const TagsHome = () => {
       <div className="title">{t('Tag Us on Your Daily Cruise #visage')}</div>
       <div className="bg-light-pink">
         <div className="tag">
-          <Row gutter={[40, 40]}>
+          <Row
+            gutter={[
+              { xs: 40, sm: 40, lg: 60 },
+              { xs: 40, sm: 40, lg: 60 },
+            ]}
+          >
             {tags.map((item, index) => (
               <Col xs={12} md={6} key={index.toString()}>
                 <div className="tag-item">

@@ -14,7 +14,7 @@ const InputField = ({ name, label, form, isRequired, type, textArea }) => {
     <div className="input-field-wrapper">
       <div className="label">
         {label}
-        {isRequired && '*'}
+        {isRequired && <span className="star-required">*</span>}
       </div>
       <Controller
         name={name}

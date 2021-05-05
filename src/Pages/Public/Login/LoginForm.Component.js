@@ -37,7 +37,7 @@ const LoginForm = () => {
     }
   }
   return (
-    <Col span={8} className="login-form-wrapper">
+    <Col xs={24} sm={12} lg={8} className="login-form-wrapper">
       <div className="login">Log In</div>
       <form onSubmit={form.handleSubmit(handleSubmit)}>
         <InputField name="email" label="Email" form={form} isRequired />

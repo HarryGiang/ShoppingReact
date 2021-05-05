@@ -18,9 +18,9 @@ const Checkout = () => {
   }
 
   return (
-    <Row className="checkout-wrapper">
-      <Col xs={24} lg={16}>
-        <Row gutter={60}>
+    <Row justify="center" className="checkout-wrapper">
+      <Col xs={24} sm={24} xl={16}>
+        <Row gutter={[{ sm: 40, xl: 60 }]}>
           <Col xs={24} md={16}>
             <div className="sub-title">My Cart</div>
             <ProductCart />
@@ -39,7 +39,11 @@ const Checkout = () => {
               <Col className="sub-total">Total</Col>
               <Col className="price-total">${total}</Col>
             </Row>
-            <Button type="primary" className="btn-checkout" onClick={handleCheckout}>
+            <Button
+              type="primary"
+              className="btn-checkout"
+              onClick={handleCheckout}
+            >
               <UnlockOutlined />
               Checkout
             </Button>

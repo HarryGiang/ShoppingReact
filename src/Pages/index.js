@@ -12,7 +12,8 @@ const ProductDetail = lazy(() => import('./Public/ProductDetail'))
 const Profile = lazy(() => import('./Public/Profile'))
 const Register = lazy(() => import('./Public/Register'))
 const Shop = lazy(() => import('./Public/Shop'))
-const AddProduct = lazy(() => import('./Private/ProductsAdmin'))
+const AddProduct = lazy(() => import('./Private/ProductsAdmin/AddProduct'))
+const AllProducts = lazy(() => import('./Private/ProductsAdmin/AllProducts'))
 
 export {
   Home,
@@ -28,4 +29,5 @@ export {
   Register,
   Shop,
   AddProduct,
+  AllProducts,
 }

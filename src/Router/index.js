@@ -18,6 +18,7 @@ import {
 import * as React from 'react'
 import { BrowserRouter as Router, Switch } from 'react-router-dom'
 import { PrivateLayout } from 'Components'
+import AllProducts from 'Pages/Private/ProductsAdmin/AllProducts'
 import PublicRoute from './Public.Route'
 import PrivateRoute from './Private.Route'
 
@@ -26,6 +27,7 @@ const Routes = () => (
     <Switch>
       <PrivateRoute exact path={ROUTER.Dashboard} component={PrivateLayout} />
       <PrivateRoute exact path={ROUTER.AddProduct} component={AddProduct} />
+      <PrivateRoute exact path={ROUTER.AllProducts} component={AllProducts} />
       <PublicRoute exact path={ROUTER.Home} component={Home} />
       <PublicRoute
         path={`${ROUTER.ProductDetail}/:id`}

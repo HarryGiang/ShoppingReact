@@ -35,7 +35,7 @@ const shop = {
     try {
       const { data } = await getShop({ page: 1, filter: null })
       // const response = await getShop();
-      // console.log('response :>> ', response);
+      console.log('data :>> ', data);
       actions.setProductShop(data)
     } catch (error) {
       actions.setProductShop([])

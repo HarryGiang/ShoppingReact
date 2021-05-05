@@ -9,7 +9,7 @@ const Login = () => {
   useLogin()
   return (
     <div className="login-wrapper">
-      <Row>
+      <Row justify="center">
         <LoginForm />
         <LoginBanner />
       </Row>

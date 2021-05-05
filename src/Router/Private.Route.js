@@ -13,6 +13,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
   }, [getUser])
 
   if (loading) return <AppLoading title="Loading Page" />
+  
   return (
     <Route
       {...rest}

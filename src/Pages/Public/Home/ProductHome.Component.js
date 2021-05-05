@@ -10,12 +10,17 @@ import { ProductItem } from 'Components/PageHelper/ProductItem'
 export const ProductHome = () => {
   const { t } = useTranslation(['home'])
   const products = useStoreState((state) => state.home.products)
-  
+
   return (
     <>
       <div className="title">{t('Most Popular')}</div>
       <div className="most-product">
-        <Row gutter={[40, 40]}>
+        <Row
+          gutter={[
+            { xs: 20, sm: 20, lg: 40 },
+            { xs: 20, sm: 20, lg: 40 },
+          ]}
+        >
           {products.map((item, index) => {
             return (
               <Col xs={12} md={6} key={index.toString()}>

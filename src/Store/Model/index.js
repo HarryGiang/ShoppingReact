@@ -3,6 +3,7 @@ import cart from './Cart.Model'
 import shop from './Shop.Model'
 import products from './Products.Model'
 import auth from './Auth.Model'
+import adminProduct from './AdminProduct.Model'
 
 const storeModel = {
   home,
@@ -10,6 +11,7 @@ const storeModel = {
   shop,
   products,
   auth,
+  adminProduct
 }
 
 export { storeModel }

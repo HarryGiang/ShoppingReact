@@ -1,14 +1,25 @@
-import { Button, Drawer, Menu } from 'Components/UI-Library'
-import { CloseOutlined, MenuOutlined } from 'Components/UI-Library/Icons'
-import { ROUTER } from 'Constants/CommonConstants'
 import React, { useState } from 'react'
+import { useStoreActions, useStoreState } from 'easy-peasy'
 import { Link } from 'react-router-dom'
+import isEmpty from 'lodash/isEmpty'
+
+import { Button, Drawer, Menu, Avatar } from 'Components/UI-Library'
+import {
+  CloseOutlined,
+  LogoutOutlined,
+  MenuOutlined,
+  ProfileOutlined,
+  UserOutlined,
+} from 'Components/UI-Library/Icons'
+import { ROUTER } from 'Constants/CommonConstants'
 import './MenuMobile.Style.less'
 import SearchBar from './SearchBar.Component'
 
 const { SubMenu } = Menu
 
 const MenuMobile = () => {
+  const user = useStoreState((state) => state.auth.user)
+  const removeUser = useStoreActions((actions) => actions.auth.removeUser)
   const [visible, setVisible] = useState(false)
   const showDrawer = () => {
     setVisible(true)
@@ -19,6 +30,10 @@ const MenuMobile = () => {
   const handleClick = (e) => {
     console.log(`click`, e)
   }
+  const handleLogout = () => {
+    removeUser()
+  }
+
   return (
     <div className="menu-mobile-wrapper">
       <Button onClick={showDrawer} className="btn-menu">
@@ -38,8 +53,8 @@ const MenuMobile = () => {
           defaultSelectedKeys={['1']}
           mode="inline"
         >
-          <SubMenu key="sub1" title="Shop">
-            <Menu.Item key="shop">
+          <SubMenu key="shop" title="Shop">
+            <Menu.Item key="shopAll">
               <Link to={ROUTER.Shop} onClick={onClose}>
                 Shop All
               </Link>
@@ -65,6 +80,50 @@ const MenuMobile = () => {
               Contact
             </Link>
           </Menu.Item>
+          <SubMenu
+            key="account"
+            title={
+              !isEmpty(user) ? (
+                <>
+                  <Avatar
+                    size="small"
+                    className="avatar"
+                    icon={<UserOutlined />}
+                  />
+                  &ensp;
+                  {user.firstName}
+                </>
+              ) : (
+                'Login'
+              )
+            }
+          >
+            {!isEmpty(user) ? (
+              <>
+                <Menu.Item key="profile">
+                  <Link to={ROUTER.Profile} onClick={onClose}>
+                    <ProfileOutlined /> Profile
+                  </Link>
+                </Menu.Item>
+                <Menu.Item key="logout" onClick={handleLogout}>
+                  <LogoutOutlined /> Log Out
+                </Menu.Item>
+              </>
+            ) : (
+              <>
+                <Menu.Item key="login">
+                  <Link to={ROUTER.Login} onClick={onClose}>
+                    Log In
+                  </Link>
+                </Menu.Item>
+                <Menu.Item key="register">
+                  <Link to={ROUTER.Register} onClick={onClose}>
+                    Register
+                  </Link>
+                </Menu.Item>
+              </>
+            )}
+          </SubMenu>
         </Menu>
       </Drawer>
     </div>

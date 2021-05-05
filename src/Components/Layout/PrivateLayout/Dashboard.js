@@ -90,7 +90,9 @@ const Dashboard = () => {
             icon={<ShoppingCartOutlined />}
             title="Products"
           >
-            <Menu.Item key="allProducts">All products</Menu.Item>
+            <Menu.Item key="allProducts">
+              <Link to={ROUTER.AllProducts}>All Products</Link>
+            </Menu.Item>
             <Menu.Item key="addProduct">
               <Link to={ROUTER.AddProduct}>Add new</Link>
             </Menu.Item>

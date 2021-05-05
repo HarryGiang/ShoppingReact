@@ -9,6 +9,7 @@ import {
 import React from 'react'
 import ProfileForm from './ProfileForm.Component'
 import StatusOrder from './StatusOrder.Component'
+import './ProfileTabs.Style.less'
 
 const { TabPane } = Tabs
 
@@ -49,7 +50,7 @@ const ProfileTabs = () => {
       <TabPane
         tab={
           <>
-            <HistoryOutlined /> Purchase History
+            <HistoryOutlined /> History
           </>
         }
         key="history"

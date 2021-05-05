@@ -25,10 +25,10 @@ const Cart = () => {
 
   return (
     <div className="cart-wrapper">
-      <Button onClick={showCart} className="shopping-cart">
-        <ShoppingCartOutlined className="cart-icon" />
+      <div className="shopping-cart">
+        <ShoppingCartOutlined className="cart-icon" onClick={showCart} />
         <Badge className="quantity" size="small" count={count} />
-      </Button>
+      </div>
       <Drawer
         closeIcon={<CloseOutlined />}
         width={320}
@@ -46,7 +46,9 @@ const Cart = () => {
             </Col>
             <Col span={24}>
               <Link to={ROUTER.Checkout}>
-                <Button onClick={onClose} className="btn-view-cart">View Cart</Button>
+                <Button onClick={onClose} className="btn-view-cart">
+                  View Cart
+                </Button>
               </Link>
             </Col>
           </Row>

@@ -1,3 +1,4 @@
 import AddProduct from './AddProduct'
+import AllProducts from './AllProducts'
 
-export default AddProduct
+export { AddProduct, AllProducts }

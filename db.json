@@ -273,6 +273,16 @@
         "https://static.wixstatic.com/media/84770f_ee87e6052e08485b83c6c071573f14ea~mv2.jpg/v1/fill/w_625,h_834,al_c,q_85,usm_0.66_1.00_0.01/84770f_ee87e6052e08485b83c6c071573f14ea~mv2.webp"
       ],
       "description": "I'm a product description. I'm a great place to add more details about your product such as sizing, material, care instructions and cleaning instructions."
+    },
+    {
+      "description": "sdgdsfgdfgdf",
+      "price": 5454,
+      "quantity": 3,
+      "name": "Xoài",
+      "color": [
+        "Yellow"
+      ],
+      "id": 13
     }
   ],
   "cart": [],

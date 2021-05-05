@@ -73,7 +73,7 @@ const Navbar = () => {
           onClick={!isEmpty(user) ? handleToProfile : handleToLogin}
         >
           <Avatar size="small" className="avatar" icon={<UserOutlined />} />
-          {!isEmpty(user) ? `${user.firstName}` : 'Login'}
+          {!isEmpty(user) ? `${user.firstName}` : 'Log In'}
         </Link>
       </Dropdown>
       <Cart />

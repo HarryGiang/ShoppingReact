@@ -15,11 +15,11 @@ const Profile = () => {
   return (
     <div className="profile-wrapper">
       <Headline label="PROFILE" />
-      <Row gutter={[0, 60]}>
-        <Col md={6} offset={1}>
+      <Row justify="space-between" gutter={[{ lg: 60 }, { lg: 60 }]}>
+        <Col sm={8}>
           <ProfileAvatar />
         </Col>
-        <Col md={14} offset={2}>
+        <Col md={14} className="profile-content">
           <h1>
             {user?.firstName} {user?.lastName} <EditOutlined />
           </h1>

@@ -49,7 +49,7 @@ const PaymentForm = () => {
 
   return (
     <form onSubmit={form.handleSubmit(handleSubmit)}>
-      <Row gutter={60}>
+      <Row gutter={[{ sm: 40, xl: 60 }]}>
         <Col xs={24} md={16}>
           <div className="sub-title">Billing Information</div>
           <Row gutter={[48, 6]}>

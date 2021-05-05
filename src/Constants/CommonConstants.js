@@ -35,7 +35,8 @@ export const ROUTER = {
   Payment: '/payment',
   Profile: '/profile',
   OrderSuccess: '/orderSuccess',
-  AddProduct: '/add-product',
+  AddProduct: '/add-product/',
+  AllProducts: '/all-products/',
   Dashboard: '/dashboard',
 }
 

@@ -21,18 +21,18 @@ const ProductDetail = () => {
       ) : (
         <div className="product-wrapper">
           <Row className="breadcrumb">
-            <Col span={12}>
+            <Col xs={24} lg={12}>
               <ProductBreadcrumb />
             </Col>
           </Row>
           <Row gutter={[30, 30]}>
-            <Col span={14}>
+            <Col xs={24} lg={14}>
               <ProductCarousel />
               <div className="short-description">
                 {productDetail.description}
               </div>
             </Col>
-            <Col span={10}>
+            <Col xs={24} lg={10}>
               <ProductContent />
             </Col>
           </Row>
