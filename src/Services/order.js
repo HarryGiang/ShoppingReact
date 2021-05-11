@@ -6,7 +6,7 @@ export const postOrder = async (data) => {
   return response
 }
 
-export const getOrder = async (data) => {
-  const response = await Axios.get(API.ORDER, data)
+export const getOrder = async (page) => {
+  const response = await Axios.get(`${API.ORDER}?_page=${page}&_limit=8`)
   return response
 }

@@ -35,16 +35,18 @@ export const ROUTER = {
   Payment: '/payment',
   Profile: '/profile',
   OrderSuccess: '/orderSuccess',
-  AddProduct: '/add-product/',
-  AllProducts: '/all-products/',
+  AddProduct: '/add-product',
+  AllProducts: '/all-products',
   Dashboard: '/dashboard',
+  AllOrders: '/all-orders',
+  AddOrder: '/add-order',
 }
 
 export const LAYOUT_WIDTH = {
-  SM: "max-width: 576px",
-  MD: "min-width: 720px",
-  LG: "min-width: 960px",
-  XL: "min-width: 1140px",
+  SM: 'max-width: 576px',
+  MD: 'min-width: 720px',
+  LG: 'min-width: 960px',
+  XL: 'min-width: 1140px',
 }
 
 export const tagItem = [

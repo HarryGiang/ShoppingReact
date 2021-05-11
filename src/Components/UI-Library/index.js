@@ -1,4 +1,5 @@
 import {
+  DatePicker,
   Table,
   Tabs,
   InputNumber,
@@ -44,6 +45,7 @@ import {
 } from 'antd'
 
 export {
+  DatePicker,
   Table,
   Tabs,
   InputNumber,

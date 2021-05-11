@@ -34,8 +34,6 @@ const shop = {
     actions.setLoading(true)
     try {
       const { data } = await getShop({ page: 1, filter: null })
-      // const response = await getShop();
-      console.log('data :>> ', data);
       actions.setProductShop(data)
     } catch (error) {
       actions.setProductShop([])
@@ -56,7 +54,6 @@ const shop = {
   ),
   getProductSearch: thunk(async (actions, payload) => {
     actions.setLoadingSearch(true)
-    console.log("payload",payload)
     try {
       const { data } = await getSearch(payload)
       // const response = await getShop();

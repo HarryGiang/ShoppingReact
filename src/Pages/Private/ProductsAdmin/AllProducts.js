@@ -89,18 +89,18 @@ const AllProducts = () => {
   ]
 
   return (
-    <div>
+    <>
+      <h1 style={{ fontSize: '32px' }}>ALL PRODUCTS</h1>
       <Table
         dataSource={allProducts}
         columns={columns}
         loading={loading}
         pagination={page}
       />
-      ;
       {visible && (
         <ModalProduct visible={visible} data={data} setVisible={setVisible} />
       )}
-    </div>
+    </>
   )
 }
 

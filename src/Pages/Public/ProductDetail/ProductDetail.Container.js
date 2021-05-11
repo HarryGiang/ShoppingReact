@@ -19,24 +19,26 @@ const ProductDetail = () => {
       {loading ? (
         <Spin indicator={<LoadingOutlined />} spinning={loading} />
       ) : (
-        <div className="product-wrapper">
-          <Row className="breadcrumb">
-            <Col xs={24} lg={12}>
-              <ProductBreadcrumb />
-            </Col>
-          </Row>
-          <Row gutter={[30, 30]}>
-            <Col xs={24} lg={14}>
-              <ProductCarousel />
-              <div className="short-description">
-                {productDetail.description}
-              </div>
-            </Col>
-            <Col xs={24} lg={10}>
-              <ProductContent />
-            </Col>
-          </Row>
-        </div>
+        <Row className="product-wrapper" justify="center">
+          <Col xs={24} md={24} lg={16}>
+            <Row className="breadcrumb">
+              <Col xs={24} lg={12}>
+                <ProductBreadcrumb />
+              </Col>
+            </Row>
+            <Row gutter={[30, 30]}>
+              <Col xs={24} md={12} lg={14}>
+                <ProductCarousel />
+                <div className="short-description">
+                  {productDetail.description}
+                </div>
+              </Col>
+              <Col xs={24} md={12} lg={10}>
+                <ProductContent />
+              </Col>
+            </Row>
+          </Col>
+        </Row>
       )}
     </>
   )

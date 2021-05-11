@@ -39,7 +39,7 @@ const products = {
     actions.setLoading(true)
     try {
       const response = await getOrder(data)
-      console.log('response :>> ', response);
+      // console.log('response :>> ', response);
       actions.setOrderStatus(response.data.status)
       actions.setLoading(false)
     } catch (error) {}

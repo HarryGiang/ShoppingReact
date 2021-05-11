@@ -20,6 +20,7 @@ import {
 
 import {
   Avatar,
+  Badge,
   Col,
   Dropdown,
   Layout,
@@ -37,12 +38,13 @@ const PrivateLayout = (props) => {
   const history = useHistory()
 
   // Redux
+  const count = useStoreState((state) => state.orderAdmin.count)
   const user = useStoreState((state) => state.auth.user)
   const removeUser = useStoreActions((actions) => actions.auth.removeUser)
 
   useEffect(() => {
     if (isEmpty(user)) {
-      history.push(ROUTER.Home)
+      history.push(ROUTER.Login)
     }
   }, [history, user])
 
@@ -72,7 +74,7 @@ const PrivateLayout = (props) => {
         >
           <SubMenu key="pages" title="Pages" icon={<CopyOutlined />}>
             <Menu.Item key="allPages">All pages</Menu.Item>
-            <Menu.Item key="10">Add new</Menu.Item>
+            <Menu.Item key="add-page">Add new</Menu.Item>
           </SubMenu>
           <SubMenu key="users" title="Users" icon={<UserOutlined />}>
             <Menu.Item key="5">All users</Menu.Item>
@@ -98,11 +100,25 @@ const PrivateLayout = (props) => {
             <Menu.Item key="setting">Setting</Menu.Item>
           </SubMenu>
 
-          <SubMenu key="orders" title="Orders" icon={<FormOutlined />}>
-            <Menu.Item key="9">All orders</Menu.Item>
-            <Menu.Item key="10">Add new</Menu.Item>
-            <Menu.Item key="11">option11</Menu.Item>
-            <Menu.Item key="12">option12</Menu.Item>
+          <SubMenu
+            key="orders"
+            title={
+              <>
+                Orders
+                <Badge size="small" count={count} offset={[10, 0]} />
+              </>
+            }
+            icon={<FormOutlined />}
+          >
+            <Menu.Item key="all-orders">
+              <Link to={ROUTER.AllOrders}>
+                All Orders
+                <Badge size="small" count={count} offset={[10, 0]} />
+              </Link>
+            </Menu.Item>
+            <Menu.Item key="add-order">
+              <Link to={ROUTER.AddOrder}>Add new</Link>
+            </Menu.Item>
           </SubMenu>
 
           <SubMenu key="setting" title="Setting" icon={<SettingOutlined />}>
@@ -148,7 +164,7 @@ const PrivateLayout = (props) => {
                     className="avatar"
                     icon={<UserOutlined />}
                   />
-                  &ensp;{user.firstName}
+                  &ensp;{user?.firstName}
                 </Link>
               </Dropdown>
             </Col>

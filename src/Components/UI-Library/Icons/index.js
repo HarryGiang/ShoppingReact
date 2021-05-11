@@ -1,4 +1,5 @@
 import {
+  SyncOutlined,
   MenuOutlined,
   CopyOutlined,
   PushpinOutlined,
@@ -70,6 +71,7 @@ import {
 } from '@ant-design/icons'
 
 export {
+  SyncOutlined,
   MenuOutlined,
   CopyOutlined,
   PushpinOutlined,

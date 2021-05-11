@@ -86,6 +86,6 @@ const ProductCart = ({ total, removeIcon }) => {
 }
 ProductCart.defaultProps = {
   removeIcon: true,
-  total: true
-};
+  total: true,
+}
 export default ProductCart

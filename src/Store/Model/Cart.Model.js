@@ -18,7 +18,13 @@ const cart = {
   total: computed((state) => {
     return state.subTotal
   }),
-
+  // getCart: action((state) => {
+  //   state.cart = [
+  //     ...state.cart,
+  //     { ...JSON.parse(localStorage.getItem('cartItem')) },
+  //   ]
+  //   console.log('state.cart :>> ', state.cart)
+  // }),
   setCart: action((state, payload) => {
     const data = state.cart
     for (let i = 0; i < state.cart.length; i += 1) {
