@@ -86,7 +86,7 @@ const RegisterForm = () => {
             isRequired
           />
           <Checkbox>I have read the agreement</Checkbox>
-          <Button type="primary" htmlType="submit" className="btn-sign-up">
+          <Button block type="primary" htmlType="submit" className="btn-sign-up">
             Sign Up
           </Button>
           Do you have an account? <Link to={ROUTER.Login}>Login now</Link>

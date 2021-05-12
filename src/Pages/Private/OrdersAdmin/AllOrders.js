@@ -1,36 +1,37 @@
-import React, { useState } from 'react'
-import { useStoreState } from 'easy-peasy'
+import { Table, Tag } from 'Components/UI-Library'
+import { CheckCircleOutlined, SyncOutlined } from 'Components/UI-Library/Icons'
+import { ROUTER } from 'Constants/CommonConstants'
 import { format } from 'date-fns'
-
-import { Popconfirm, Space, Table, Tag } from 'Components/UI-Library'
-import {
-  DeleteOutlined,
-  EditOutlined,
-  SyncOutlined,
-  CheckCircleOutlined,
-} from 'Components/UI-Library/Icons'
-import ModalOrder from './ModalOrder.Component'
+import { useStoreActions, useStoreState } from 'easy-peasy'
+import React from 'react'
+import { Link } from 'react-router-dom'
 
 const AllOrders = () => {
   // State
   const orders = useStoreState((state) => state.orderAdmin.orders)
-  console.log('orders :>> ', orders)
   const loading = useStoreState((state) => state.orderAdmin.loading)
-  const [visible, setVisible] = useState(false)
-  const [data, setData] = useState({})
-
+  const getOrderDetail = useStoreActions(
+    (action) => action.orderAdmin.getOrderDetail
+  )
   // Function
-  const showModal = (data) => {
-    setData(data)
-    setVisible(true)
+  const onHanleId = (id) => {
+    getOrderDetail(id)
   }
-
   // data table
   const columns = [
     {
-      title: 'Code Orders',
+      title: 'Orders',
       dataIndex: 'id',
       key: 'order',
+      render: (id, record) => (
+        <Link
+          to={`${ROUTER.OrderDetail}/${id}`}
+          onClick={() => onHanleId(id)}
+          style={{ fontWeight: '500', color: '#2271b1' }}
+        >
+          #{id} {record.reciver.firstName} {record.reciver.lastName}
+        </Link>
+      ),
     },
     {
       title: 'Date',
@@ -63,23 +64,9 @@ const AllOrders = () => {
       key: 'total',
     },
     {
-      title: 'Action',
-      key: 'action',
-      render: (text, record) => (
-        <Space size="middle">
-          <EditOutlined onClick={() => showModal(record)} />
-          <Popconfirm
-            title="Are you sure to delete this product?"
-            // onConfirm={() => confirm(record.id)}
-            okText="Yes"
-            cancelText="No"
-          >
-            <a href="#">
-              <DeleteOutlined />
-            </a>
-          </Popconfirm>
-        </Space>
-      ),
+      title: 'Payment',
+      dataIndex: 'payment',
+      key: 'payment',
     },
   ]
   const rowSelection = {
@@ -107,9 +94,6 @@ const AllOrders = () => {
         loading={loading}
         // pagination={page}
       />
-      {visible && (
-        <ModalOrder visible={visible} data={data} setVisible={setVisible} />
-      )}
     </>
   )
 }

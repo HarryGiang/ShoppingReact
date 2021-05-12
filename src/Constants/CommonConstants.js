@@ -40,6 +40,7 @@ export const ROUTER = {
   Dashboard: '/dashboard',
   AllOrders: '/all-orders',
   AddOrder: '/add-order',
+  OrderDetail: '/order-detail',
 }
 
 export const LAYOUT_WIDTH = {

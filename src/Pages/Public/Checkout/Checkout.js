@@ -40,6 +40,7 @@ const Checkout = () => {
               <Col className="price-total">${total}</Col>
             </Row>
             <Button
+              block
               type="primary"
               className="btn-checkout"
               onClick={handleCheckout}

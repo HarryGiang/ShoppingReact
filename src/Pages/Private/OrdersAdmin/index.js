@@ -1,3 +1,4 @@
 import AllOrders from './AllOrders'
+import OrderDetail from './OrderDetail'
 
-export default AllOrders
+export { AllOrders, OrderDetail }

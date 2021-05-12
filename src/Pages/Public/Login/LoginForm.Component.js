@@ -56,7 +56,7 @@ const LoginForm = () => {
             <Link to="">Forgot password</Link>
           </Col>
         </Row>
-        <Button type="primary" htmlType="submit" className="btn-login">
+        <Button block type="primary" htmlType="submit" className="btn-login">
           Log In
         </Button>
         Do you have an account? <Link to={ROUTER.Register}>Register now</Link>

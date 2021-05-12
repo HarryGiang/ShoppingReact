@@ -46,7 +46,7 @@ const Cart = () => {
             </Col>
             <Col span={24}>
               <Link to={ROUTER.Checkout}>
-                <Button onClick={onClose} className="btn-view-cart">
+                <Button block onClick={onClose} className="btn-view-cart">
                   View Cart
                 </Button>
               </Link>

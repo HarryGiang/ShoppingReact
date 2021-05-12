@@ -1,7 +1,7 @@
 @import '~antd/lib/style/themes/default.less';
 @blue: #0a1fdb;
 
-.modal-order-wrapper {
+.order-detail-wrapper {
   .label {
     color: @blue;
   }
@@ -10,5 +10,14 @@
   }
   .mb-sm{
       margin-bottom: @margin-sm;
+  }
+  .btn-delete{
+    color: red;
+    padding: 0;
+    border: 0;
+    &:hover {
+      background-color: transparent;
+      color: @blue;
+    }
   }
 }

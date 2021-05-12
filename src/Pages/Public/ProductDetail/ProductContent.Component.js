@@ -86,19 +86,19 @@ const ProductContent = () => {
       <div className="mb-sm">
         <Row gutter={[8, 8]}>
           <Col span={20}>
-            <Button onClick={() => onHandleAdd(productDetail)}>
+            <Button block onClick={() => onHandleAdd(productDetail)}>
               Add to cart
             </Button>
           </Col>
           <Col span={4}>
-            <Button>
+            <Button block>
               <HeartOutlined />
             </Button>
           </Col>
         </Row>
       </div>
       <div className="mb-sm">
-        <Button type="primary" onClick={() => onHandleBuyNow(productDetail)}>
+        <Button block type="primary" onClick={() => onHandleBuyNow(productDetail)}>
           Buy Now
         </Button>
       </div>

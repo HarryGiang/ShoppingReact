@@ -5,10 +5,7 @@
       "name": "I'm a Product",
       "price": 10,
       "quantity": 1,
-      "color": [
-        "Black",
-        "Gray"
-      ],
+      "color": ["Black", "Gray"],
       "shipping": 5,
       "image": [
         "https://static.wixstatic.com/media/84770f_c63930bf88244b0e8799477c0341f3bc~mv2.jpg/v1/fill/w_625,h_834,al_c,q_85,usm_0.66_1.00_0.01/84770f_c63930bf88244b0e8799477c0341f3bc~mv2.webp",
@@ -22,10 +19,7 @@
       "name": "I'm a Product",
       "price": 10,
       "quantity": 1,
-      "color": [
-        "Black",
-        "Gray"
-      ],
+      "color": ["Black", "Gray"],
       "shipping": 5,
       "image": [
         "https://static.wixstatic.com/media/84770f_28edc5e19bc2497189eb88785717f1e0~mv2.jpg/v1/fill/w_625,h_834,al_c,q_85,usm_0.66_1.00_0.01/84770f_28edc5e19bc2497189eb88785717f1e0~mv2.webp",
@@ -39,10 +33,7 @@
       "name": "I'm a Product",
       "price": 10,
       "quantity": 1,
-      "color": [
-        "Black",
-        "Gray"
-      ],
+      "color": ["Black", "Gray"],
       "shipping": 5,
       "image": [
         "https://static.wixstatic.com/media/84770f_4f3970a052ef4bc3914f116a8160b7f2~mv2.jpg/v1/fill/w_625,h_834,al_c,q_85,usm_0.66_1.00_0.01/84770f_4f3970a052ef4bc3914f116a8160b7f2~mv2.webp",
@@ -56,10 +47,7 @@
       "name": "I'm a Product",
       "price": 10,
       "quantity": 1,
-      "color": [
-        "Black",
-        "Gray"
-      ],
+      "color": ["Black", "Gray"],
       "shipping": 5,
       "image": [
         "https://static.wixstatic.com/media/84770f_46124d58147e46368cb73b4761c936b4~mv2.jpg/v1/fill/w_625,h_834,al_c,q_85,usm_0.66_1.00_0.01/84770f_46124d58147e46368cb73b4761c936b4~mv2.webp",
@@ -75,10 +63,7 @@
       "name": "1122I'm a Product",
       "price": 10.25,
       "quantity": 1,
-      "color": [
-        "Black",
-        "Gray"
-      ],
+      "color": ["Black", "Gray"],
       "shipping": 5,
       "image": [
         "https://static.wixstatic.com/media/84770f_c63930bf88244b0e8799477c0341f3bc~mv2.jpg/v1/fill/w_625,h_834,al_c,q_85,usm_0.66_1.00_0.01/84770f_c63930bf88244b0e8799477c0341f3bc~mv2.webp",
@@ -92,10 +77,7 @@
       "name": "2211I'm a Product",
       "price": 26.54,
       "quantity": 1,
-      "color": [
-        "Black",
-        "Gray"
-      ],
+      "color": ["Black", "Gray"],
       "shipping": 5,
       "image": [
         "https://static.wixstatic.com/media/84770f_28edc5e19bc2497189eb88785717f1e0~mv2.jpg/v1/fill/w_625,h_834,al_c,q_85,usm_0.66_1.00_0.01/84770f_28edc5e19bc2497189eb88785717f1e0~mv2.webp",
@@ -109,10 +91,7 @@
       "name": "I'm a Product",
       "price": 3.87,
       "quantity": 1,
-      "color": [
-        "Black",
-        "Gray"
-      ],
+      "color": ["Black", "Gray"],
       "shipping": 5,
       "image": [
         "https://static.wixstatic.com/media/84770f_4f3970a052ef4bc3914f116a8160b7f2~mv2.jpg/v1/fill/w_625,h_834,al_c,q_85,usm_0.66_1.00_0.01/84770f_4f3970a052ef4bc3914f116a8160b7f2~mv2.webp",
@@ -126,10 +105,7 @@
       "name": "I'm a Product",
       "price": 10,
       "quantity": 1,
-      "color": [
-        "Black",
-        "Gray"
-      ],
+      "color": ["Black", "Gray"],
       "shipping": 5,
       "image": [
         "https://static.wixstatic.com/media/84770f_46124d58147e46368cb73b4761c936b4~mv2.jpg/v1/fill/w_625,h_834,al_c,q_85,usm_0.66_1.00_0.01/84770f_46124d58147e46368cb73b4761c936b4~mv2.webp",
@@ -143,10 +119,7 @@
       "name": "I'm a Product",
       "price": 10,
       "quantity": 1,
-      "color": [
-        "Black",
-        "Gray"
-      ],
+      "color": ["Black", "Gray"],
       "shipping": 5,
       "image": [
         "https://static.wixstatic.com/media/84770f_c63930bf88244b0e8799477c0341f3bc~mv2.jpg/v1/fill/w_625,h_834,al_c,q_85,usm_0.66_1.00_0.01/84770f_c63930bf88244b0e8799477c0341f3bc~mv2.webp",
@@ -160,10 +133,7 @@
       "name": "I'm a Product",
       "price": 10,
       "quantity": 1,
-      "color": [
-        "Black",
-        "Gray"
-      ],
+      "color": ["Black", "Gray"],
       "shipping": 5,
       "image": [
         "https://static.wixstatic.com/media/84770f_28edc5e19bc2497189eb88785717f1e0~mv2.jpg/v1/fill/w_625,h_834,al_c,q_85,usm_0.66_1.00_0.01/84770f_28edc5e19bc2497189eb88785717f1e0~mv2.webp",
@@ -177,10 +147,7 @@
       "name": "I'm a Product",
       "price": 10,
       "quantity": 1,
-      "color": [
-        "Black",
-        "Gray"
-      ],
+      "color": ["Black", "Gray"],
       "shipping": 5,
       "image": [
         "https://static.wixstatic.com/media/84770f_4f3970a052ef4bc3914f116a8160b7f2~mv2.jpg/v1/fill/w_625,h_834,al_c,q_85,usm_0.66_1.00_0.01/84770f_4f3970a052ef4bc3914f116a8160b7f2~mv2.webp",
@@ -194,10 +161,7 @@
       "name": "I'm a Product",
       "price": 10,
       "quantity": 1,
-      "color": [
-        "Black",
-        "Gray"
-      ],
+      "color": ["Black", "Gray"],
       "shipping": 5,
       "image": [
         "https://static.wixstatic.com/media/84770f_46124d58147e46368cb73b4761c936b4~mv2.jpg/v1/fill/w_625,h_834,al_c,q_85,usm_0.66_1.00_0.01/84770f_46124d58147e46368cb73b4761c936b4~mv2.webp",
@@ -211,10 +175,7 @@
       "name": "I'm a Product",
       "price": 10,
       "quantity": 1,
-      "color": [
-        "Black",
-        "Gray"
-      ],
+      "color": ["Black", "Gray"],
       "shipping": 5,
       "image": [
         "https://static.wixstatic.com/media/84770f_c63930bf88244b0e8799477c0341f3bc~mv2.jpg/v1/fill/w_625,h_834,al_c,q_85,usm_0.66_1.00_0.01/84770f_c63930bf88244b0e8799477c0341f3bc~mv2.webp",
@@ -228,10 +189,7 @@
       "name": "I'm a Product",
       "price": 10,
       "quantity": 1,
-      "color": [
-        "Black",
-        "Gray"
-      ],
+      "color": ["Black", "Gray"],
       "shipping": 5,
       "image": [
         "https://static.wixstatic.com/media/84770f_28edc5e19bc2497189eb88785717f1e0~mv2.jpg/v1/fill/w_625,h_834,al_c,q_85,usm_0.66_1.00_0.01/84770f_28edc5e19bc2497189eb88785717f1e0~mv2.webp",
@@ -245,10 +203,7 @@
       "name": "I'm a Product",
       "price": 10,
       "quantity": 1,
-      "color": [
-        "Black",
-        "Gray"
-      ],
+      "color": ["Black", "Gray"],
       "shipping": 5,
       "image": [
         "https://static.wixstatic.com/media/84770f_4f3970a052ef4bc3914f116a8160b7f2~mv2.jpg/v1/fill/w_625,h_834,al_c,q_85,usm_0.66_1.00_0.01/84770f_4f3970a052ef4bc3914f116a8160b7f2~mv2.webp",
@@ -262,10 +217,7 @@
       "name": "I'm a Product",
       "price": 10,
       "quantity": 1,
-      "color": [
-        "Black",
-        "Gray"
-      ],
+      "color": ["Black", "Gray"],
       "shipping": 5,
       "image": [
         "https://static.wixstatic.com/media/84770f_46124d58147e46368cb73b4761c936b4~mv2.jpg/v1/fill/w_625,h_834,al_c,q_85,usm_0.66_1.00_0.01/84770f_46124d58147e46368cb73b4761c936b4~mv2.webp",
@@ -279,9 +231,7 @@
       "price": 5454,
       "quantity": 3,
       "name": "Xoài",
-      "color": [
-        "Yellow"
-      ],
+      "color": ["Yellow"],
       "id": 13
     }
   ],
@@ -654,7 +604,8 @@
       "phoneNumber": 123456789,
       "lastName": "Tran",
       "firstName": "Anh Minh",
-      "id": 1
+      "id": 1,
+      "cart": []
     },
     {
       "confirmPassword": "123456",
@@ -663,7 +614,8 @@
       "phoneNumber": 54684545213,
       "lastName": "Trần",
       "firstName": "Anh Minh",
-      "id": 2
+      "id": 2,
+      "cart": []
     },
     {
       "confirmPassword": "123456",
@@ -672,7 +624,8 @@
       "phoneNumber": 5646532132123,
       "lastName": "Trần",
       "firstName": "Anh Minh",
-      "id": 3
+      "id": 3,
+      "cart": []
     }
   ]
 }

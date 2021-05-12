@@ -61,7 +61,7 @@ const ContactForm = () => {
           />
         </Col>
         <Col xs={12} md={10} lg={10}>
-          <Button htmlType="submit" className="btn-submit">Submit</Button>
+          <Button block htmlType="submit" className="btn-submit">Submit</Button>
         </Col>
       </Row>
     </form>
